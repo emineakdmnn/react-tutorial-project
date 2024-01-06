@@ -1,26 +1,28 @@
 import React from "react";
-import {FooterItem} from "./FooterItem";
+import { FooterItem } from "./FooterItem";
+import styles from './style.module.scss'
 
 function Footer() {
     const menuItems = [
         {
             title: 'Sıkça Sorulan Sorular',
-            link: '/faq'
-        }
-    ]
+            link: '/faq',
+        },
+    ];
 
     return (
-        <div>
+        <div className={styles.footer}>
             <nav>
-                {menuItems.map((menuItem) => {
-                    return(
-                        <FooterItem title={menuItem.title} link={menuItem.link} style={{margin:'10px', color:'red'}} />
-                    )
-                })}
+                {menuItems.map((menuItem) => (
+                    <FooterItem
+                        key={menuItem.title}
+                        title={menuItem.title}
+                        link={menuItem.link}
+                    />
+                ))}
             </nav>
         </div>
     );
-
 }
 
 export default Footer;

@@ -14,19 +14,19 @@ function Header(props) {
         },
         {
             title: 'Favoriler',
-            path: '/favoriler'
+            path: '/favorites'
         },
         {
             title: 'Geçmiş',
-            path: '/gecmis'
+            path: '/history'
         },
         {
             title: 'Forumlarım',
-            path: '/forumlarım'
+            path: '/my-forums'
         } ,
         {
             title: 'Bana Özel',
-            path: '/bana-ozel'
+            path: '/special-for-me'
         }
     ]
 

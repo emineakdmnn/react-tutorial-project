@@ -6,11 +6,15 @@ import Footer from "../Footer/Footer";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {PrivateMessage} from "../../pages/PrivateMessage";
 import {Answered} from "../../pages/Answered";
+import {Favorites} from "../../pages/Favorites";
+import {History} from "../../pages/History";
+import {MyForums} from "../../pages/MyForums";
+import {SpecialForMe} from "../../pages/SpecialForMe";
 
 function Container(props) {
     const router = createBrowserRouter([
         {
-            title: 'Cevaplanan',
+            title: 'Anasayfa',
             path: '',
             element: <Answered />,
         },
@@ -27,28 +31,28 @@ function Container(props) {
         {
             title: 'Favoriler',
             path: '/favorites',
-            element: <PrivateMessage />, //todo favorites page oluşturulacak
+            element: <Favorites />,
         },
         {
             title: 'Geçmiş',
             path: '/history',
-            element: <PrivateMessage />, //todo history page oluşturulacak
+            element: <History />,
         },
         {
             title: 'Forumlarım',
             path: '/my-forums',
-            element: <PrivateMessage />, //todo forums page oluşturulacak
+            element: <MyForums />,
         } ,
         {
             title: 'Bana Özel',
             path: '/special-for-me',
-            element: <PrivateMessage />, //todo specialForMe page oluşturulacak
+            element: <SpecialForMe />,
         }
     ]);
 
     return (
         <>
-            <div className={cn(styles['headerArea'])}>
+            <div className={cn(styles['header-area'])}>
                 <Header headerTitle={'X Haber'}></Header>
             </div>
             <div className={styles['contentArea']}>
@@ -59,7 +63,6 @@ function Container(props) {
             </div>
         </>
     )
-
 }
 
-export default Container
+export default Container;
