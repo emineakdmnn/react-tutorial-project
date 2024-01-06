@@ -55,10 +55,10 @@ function Container(props) {
             <div className={cn(styles['header-area'])}>
                 <Header headerTitle={'X Haber'}></Header>
             </div>
-            <div className={styles['contentArea']}>
+            <div className={cn(styles['content-area'])}>
                 <RouterProvider router={router} />
             </div>
-            <div className={styles['footerArea']}>
+            <div className={cn(styles['footer-area'])}>
                 <Footer></Footer>
             </div>
         </>
