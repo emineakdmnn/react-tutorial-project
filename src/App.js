@@ -4,11 +4,11 @@ import './Components/Container/style.module.scss'
 import Container from "./Components/Container";
 
 function App() {
-  return (
-    <>
-        <Container></Container>
-    </>
-  );
+    return (
+        <>
+            <Container></Container>
+        </>
+    );
 }
 
 export default App;

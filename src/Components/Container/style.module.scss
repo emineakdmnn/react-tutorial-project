@@ -14,20 +14,6 @@ $backgroundColor: #333;
   bottom: 0;
 }
 
-.content-area {
-  height: 200px;
-  margin-top: 30px;
-  padding: 5px;
-  border: 2px solid $borderColor;
-  background: $backgroundColor;
-  width: 100%;
-  box-shadow: 0px -5px 10px rgba(0, 0, 0, 1);
-}
-
-.content-area:hover {
-  background: #777;  /* Fare üzerine gelindiğindeki renk */
-}
-
 .content-text {
   font-weight: bold;
   color: red;
