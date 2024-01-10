@@ -33,3 +33,44 @@ $backgroundColor: #333;
   color: red;
   font-size: 20px;
 }
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-item {
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.movie-poster {
+  max-width: 100%;
+  height: auto;
+}
+
+.movie-title {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.movie-details {
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.movie-detail-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.movie-detail-value {
+  margin-bottom: 10px;
+}

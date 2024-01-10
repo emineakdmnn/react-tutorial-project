@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "..//..//Components/Container/style.module.scss"
-export const Answered = ({}) => {
+export const TopRated = ({}) => {
     return (
         <>
-            <p className= {styles["content-text"]}>Answered</p>
+            <p className= {styles["content-text"]}>TopRated</p>
         </>
     );
 }

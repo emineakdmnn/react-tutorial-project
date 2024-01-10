@@ -5,28 +5,16 @@ import PropTypes from "prop-types";
 function Header(props) {
     const menuItems = [
         {
-            title: 'Cevaplanan',
-            path: '/answered',
+            title: 'Popular',
+            path: '/popular',
         },
         {
-            title: 'Özel Mesaj',
-            path: '/private-message',
+            title: 'Top Rated',
+            path: '/top-rated',
         },
         {
-            title: 'Favoriler',
-            path: '/favorites'
-        },
-        {
-            title: 'Geçmiş',
-            path: '/history'
-        },
-        {
-            title: 'Forumlarım',
-            path: '/my-forums'
-        } ,
-        {
-            title: 'Bana Özel',
-            path: '/special-for-me'
+            title: 'Up Coming',
+            path: '/up_coming'
         }
     ]
 
