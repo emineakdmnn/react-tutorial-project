@@ -19,17 +19,17 @@ function Container(props) {
         },
         {
             title: 'Popular',
-            path: '/popular',
+            path: '/popular-movies',
             element: <Popular />,
         },
         {
             title: 'Top Rated',
-            path: '/top-rated',
+            path: '/top-rated-movies',
             element: <TopRated />,
         },
         {
             title: 'Up Coming',
-            path: '/up-coming',
+            path: '/up-coming-movies',
             element: <UpComing />,
         },
         {

@@ -6,15 +6,15 @@ function Header(props) {
     const menuItems = [
         {
             title: 'Popular',
-            path: '/popular',
+            path: '/popular-movies',
         },
         {
             title: 'Top Rated',
-            path: '/top-rated',
+            path: '/top-rated-movies',
         },
         {
             title: 'Up Coming',
-            path: '/up-coming'
+            path: '/up-coming-movies'
         }
     ]
 
