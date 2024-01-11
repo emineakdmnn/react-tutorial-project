@@ -3,7 +3,7 @@ import styles from './style.module.scss'
 import Header from "../NavBar/Header";
 import cn from "classnames";
 import Footer from "../Footer/Footer";
-import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Popular from "../../pages/Popular";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
