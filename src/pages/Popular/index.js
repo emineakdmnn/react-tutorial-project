@@ -9,9 +9,9 @@ const Popular = ({}) => {
     const [popularMovies, setPopularMovies] = useState([]);
     const movieService = new MovieService();
 
-    const contentLoad = async () => {
+    const contentLoad =  () => {
         setLoading(true)
-        await movieService.fetchPopularMovies().then((response)=>{
+         movieService.fetchPopularMovies().then((response)=>{
             setPopularMovies(response)
             setLoading(false)
         }).catch((error) => {
