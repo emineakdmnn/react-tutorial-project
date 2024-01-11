@@ -46,14 +46,7 @@ function Container(props) {
                     <Header headerTitle={'MOVİES'}></Header>
                 </div>
                 <div className={cn(styles['content-area'], 'page_404')}>
-                    <RouterProvider router={router}>
-                        <Routes>
-                            {router.routes?.map((route) => (
-                                <Route key={route.path} path={route.path} element={route.element} />
-                            ))}
-                            {router.routes === undefined && <Route path="*" element={<Error />} />}
-                        </Routes>
-                    </RouterProvider>
+                    <RouterProvider router={router}/>
                 </div>
                 <div className={cn(styles['footer-area'])}>
                     <Footer></Footer>
