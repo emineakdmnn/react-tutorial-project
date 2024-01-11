@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import styles from "..//..//Components/Container/style.module.scss"
+import styles from "../../Components/Container/style.module.scss"
 import MovieService from "../../services/MovieService";
 import MovieCard from "../../Components/Cards/MovieCard";
 const TopRated = ({}) => {
