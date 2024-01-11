@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from './style.module.scss';
 
-export const Index = () => {
+export const Error = () => {
     return (
         <section className={styles.page_404}>
             <div className="container">

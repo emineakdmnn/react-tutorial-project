@@ -1,4 +1,3 @@
-// Container.js
 import React from "react";
 import styles from './style.module.scss'
 import Header from "../NavBar/Header";
@@ -8,10 +7,10 @@ import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router
 import Popular from "../../pages/Popular";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
-import {Index} from "../Error";
+import { Error } from "../Error/Error";
+import ErrorBoundary from "../Error/ErrorBoundary";
 
 function Container(props) {
-
     const router = createBrowserRouter([
         {
             title: 'HomePage',
@@ -36,29 +35,32 @@ function Container(props) {
         {
             title: 'Not Found',
             path: '*',
-            element: <Index />,
+            element: <Error />,
         },
     ]);
 
     return (
-        <>
-            <div className={cn(styles['header-area'])}>
-                <Header headerTitle={'MOVİES'}></Header>
-            </div>
-            <div className={cn(styles['content-area'])}>
-                <RouterProvider router={router}>
-                    <Routes>
-                        {router.routes?.map((route) => (
-                            <Route key={route.path} path={route.path} element={route.element} />
-                        ))}
-                        {router.routes === undefined && <Route path="*" element={<Index />} />}
-                    </Routes>
-                </RouterProvider>
-            </div>
-            <div className={cn(styles['footer-area'])}>
-                <Footer></Footer>
-            </div>
-        </>
-    )
+        <ErrorBoundary>
+            <>
+                <div className={cn(styles['header-area'])}>
+                    <Header headerTitle={'MOVİES'}></Header>
+                </div>
+                <div className={cn(styles['content-area'], 'page_404')}>
+                    <RouterProvider router={router}>
+                        <Routes>
+                            {router.routes?.map((route) => (
+                                <Route key={route.path} path={route.path} element={route.element} />
+                            ))}
+                            {router.routes === undefined && <Route path="*" element={<Error />} />}
+                        </Routes>
+                    </RouterProvider>
+                </div>
+                <div className={cn(styles['footer-area'])}>
+                    <Footer></Footer>
+                </div>
+            </>
+        </ErrorBoundary>
+    );
 }
+
 export default Container;
