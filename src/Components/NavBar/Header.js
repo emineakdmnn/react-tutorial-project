@@ -14,20 +14,17 @@ function Header(props) {
         },
         {
             title: 'Up Coming',
-            path: '/up_coming'
+            path: '/up-coming'
         }
     ]
-
 
     return (
         <header>
             <h3>{props.headerTitle}</h3>
             <nav>
-                {menuItems.map((menuItem) => {
-                    return(
-                        <HeaderItem title={menuItem.title} path={menuItem.path} style={{margin:'10px', color:'red'}} />
-                    )
-                })}
+                {menuItems.map((menuItem, index) => (
+                    <HeaderItem key={menuItem.title} title={menuItem.title} path={menuItem.path} style={{ margin: '10px', color: 'red' }} />
+                ))}
             </nav>
         </header>
     );

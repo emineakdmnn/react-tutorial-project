@@ -6,28 +6,26 @@ class MovieService {
         this.apiKey = '143b514b8f21e9b1982a0d0202a3f1e8';
     }
 
-    async fetchData(endpoint) {
-        try {
-            const response = await axios.get(`${this.baseUrl}/${endpoint}?api_key=${this.apiKey}`);
-            return response.data.results;
-        } catch (error) {
-            console.error(error);
-            throw error;
-        }
+    fetchData(endpoint) {
+        return axios.get(`${this.baseUrl}/${endpoint}?api_key=${this.apiKey}`)
+            .then(response => response.data.results)
+            .catch(error => {
+                console.error(error);
+                throw error;
+            });
     }
 
-    async fetchPopularMovies() {
-        return await this.fetchData('popular');
+    fetchPopularMovies() {
+        return this.fetchData('popular');
     }
 
-    async fetchUpComingMovies() {
-        return await this.fetchData('upcoming');
+    fetchUpComingMovies() {
+        return this.fetchData('upcoming');
     }
 
-    async fetchTopRatedMovies() {
-        return await this.fetchData('top_rated');
+    fetchTopRatedMovies() {
+        return this.fetchData('top_rated');
     }
-
 }
 
 export default MovieService;

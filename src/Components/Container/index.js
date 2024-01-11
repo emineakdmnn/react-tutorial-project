@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from './style.module.scss'
 import Header from "../NavBar/Header";
 import cn from "classnames";
 import Footer from "../Footer/Footer";
-import { createBrowserRouter, RouterProvider, useRoutes } from "react-router-dom";
-import { Popular } from "../../pages/Popular";
-import { TopRated } from "../../pages/TopRated";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Popular from "../../pages/Popular";
+import TopRated  from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
 
 function Container(props) {
-
 
     const router = createBrowserRouter([
         {
@@ -29,11 +28,10 @@ function Container(props) {
         },
         {
             title: 'Up Coming',
-            path: '/up_coming',
+            path: '/up-coming',
             element: <UpComing />,
         }
     ]);
-
 
     return (
         <>
@@ -41,6 +39,7 @@ function Container(props) {
                 <Header headerTitle={'MOVİES'}></Header>
             </div>
             <div className={cn(styles['content-area'])}>
+                {/*todo error loading yap Routera nasıl eklenir */}
                 <RouterProvider router={router} />
             </div>
             <div className={cn(styles['footer-area'])}>
