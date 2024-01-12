@@ -1,38 +1,38 @@
-.page_404 {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.error-container {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.page-404 {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 250px;
   background: #fff;
   font-family: "Arvo", serif;
   text-align: center;
 }
 
-.page_404 img {
+.page-404 Img {
   width: 100%;
 }
 
-.four_zero_four_bg {
-  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-  height: 50vh;
+.fourZeroFourBg {
+  height: 100%;
   background-position: center;
 }
 
-.four_zero_four_bg h1,
-.four_zero_four_bg h3 {
+.fourZeroFourBg h1,
+.fourZeroFourBg h3 {
   font-size: 80px;
 }
 
-.link_404 {
+.link404 {
   color: #fff !important;
   padding: 10px 20px;
   background: #39ac31;
   margin: 20px 0;
   display: inline-block;
-}
-
-.contant_box_404 {
-  margin-top: -50px;
 }

@@ -7,14 +7,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Popular from "../../pages/Popular";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
-import { Error } from "../Error/Error";
 import ErrorBoundary from "../Error/ErrorBoundary";
+import Error from "../Error";
 
 function Container(props) {
     const router = createBrowserRouter([
         {
             title: 'HomePage',
             path: '',
+            element: <Popular />,
+        },
+        {
+            title: 'HomePage',
+            path: '/home',
             element: <Popular />,
         },
         {
@@ -35,23 +40,19 @@ function Container(props) {
         {
             title: 'Not Found',
             path: '*',
-            element: <Error />,
+            element: <Error/>,
         },
     ]);
 
     return (
         <ErrorBoundary>
-            <>
-                <div className={cn(styles['header-area'])}>
-                    <Header headerTitle={'MOVİES'}></Header>
-                </div>
-                <div className={cn(styles['content-area'], 'page_404')}>
-                    <RouterProvider router={router}/>
-                </div>
-                <div className={cn(styles['footer-area'])}>
-                    <Footer></Footer>
-                </div>
-            </>
+            <div className={cn(styles['header-area'])}>
+                <Header headerTitle={'MOVİES'}></Header>
+            </div>
+            <RouterProvider router={router}/>
+            <div className={cn(styles['footer-area'])}>
+                <Footer></Footer>
+            </div>
         </ErrorBoundary>
     );
 }

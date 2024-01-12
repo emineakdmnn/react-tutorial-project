@@ -8,7 +8,10 @@ class MovieService {
 
     fetchData(endpoint) {
         return axios.get(`${this.baseUrl}/${endpoint}?api_key=${this.apiKey}`)
-            .then(response => response.data.results)
+            .then(response => {
+                response.data.status = response.status
+                return response.data
+            })
             .catch(error => {
                 console.error(error);
                 throw error;

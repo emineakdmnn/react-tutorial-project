@@ -11,7 +11,7 @@ const UpComing = () => {
     const contentLoad =  () => {
         setLoading(true)
          movieService.fetchUpComingMovies().then((response)=>{
-            setUpComingMovies(response)
+            setUpComingMovies(response.results)
             setLoading(false)
         }).catch((error) => {
             setUpComingMovies([])

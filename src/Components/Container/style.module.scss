@@ -4,7 +4,7 @@ $backgroundColor: #333;
 .header-area {
   height: 80px;
   border: 2px solid $borderColor;
-  background: $backgroundColor;
+  background: var(--header-backgorund-color);
   padding: 0 10px 20px;
 }
 
@@ -16,7 +16,7 @@ $backgroundColor: #333;
 
 .content-text {
   font-weight: bold;
-  color: red;
+  color: var(--font-color);
   font-size: 20px;
 }
 
