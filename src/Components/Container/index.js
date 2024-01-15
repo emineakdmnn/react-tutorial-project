@@ -5,6 +5,7 @@ import cn from "classnames";
 import Footer from "../Footer/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Popular from "../../pages/Popular";
+import PopularDetails from "../../pages/Popular/PopularDetails";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
 import ErrorBoundary from "../Error/ErrorBoundary";
@@ -26,6 +27,11 @@ function Container(props) {
             title: 'Popular',
             path: '/popular-movies',
             element: <Popular />,
+        },
+        {
+            title: 'PopularDetails',
+            path: '/popular-movie-id/:id',
+            element: <PopularDetails/>
         },
         {
             title: 'Top Rated',

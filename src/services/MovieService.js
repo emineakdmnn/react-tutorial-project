@@ -18,6 +18,10 @@ class MovieService {
             });
     }
 
+    fetchMovieDetails(movieId) {
+        return this.fetchData(movieId);
+    }
+
     fetchPopularMovies() {
         return this.fetchData('popular');
     }
@@ -30,5 +34,4 @@ class MovieService {
         return this.fetchData('top_rated');
     }
 }
-
 export default MovieService;
