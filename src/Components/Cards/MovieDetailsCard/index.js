@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Global from "../../../helpers/Global";
-import styles from '../../../pages/MoviesDetail/styles/styles.module.scss';
+import styles from '../../../pages/styles/styles.module.scss';
 
 function MovieDetailsCard(props) {
     const [id, setId] = useState(props?.id ?? null);

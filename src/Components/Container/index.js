@@ -5,13 +5,13 @@ import cn from "classnames";
 import Footer from "../Footer/Footer";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Popular from "../../pages/Popular";
-import PopularDetail from "../../pages/MoviesDetail/PopularDetail";
-import TopRatedDetail from "../../pages/MoviesDetail/TopRatedDetail";
+import PopularDetail from "../../pages/Popular/PopularDetail";
+import TopRatedDetail from "../../pages/TopRated/TopRatedDetail";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
 import ErrorBoundary from "../Error/ErrorBoundary";
 import Error from "../Error";
-import UpComingDetail from "../../pages/MoviesDetail/UpComingDetail";
+import UpComingDetail from "../../pages/UpComing/UpComingDetail";
 
 function Container(props) {
     const router = createBrowserRouter([

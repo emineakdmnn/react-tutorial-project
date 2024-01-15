@@ -3,7 +3,7 @@ import {useLocation, useParams} from 'react-router-dom';
 import { Loading } from '../../../Components/Loading';
 import Error from '../../../Components/Error';
 import MovieService from "../../../services/MovieService";
-import styles from "../styles/styles.module.scss"
+import styles from "../../styles/styles.module.scss"
 import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
 
 const TopRatedDetails = () => {
