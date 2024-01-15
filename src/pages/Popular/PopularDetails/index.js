@@ -3,24 +3,25 @@ import { useParams } from 'react-router-dom';
 import { Loading } from '../../../Components/Loading';
 import Error from '../../../Components/Error';
 import MovieService from "../../../services/MovieService";
+import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
 
 const PopularMovieDetail = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
-    const [movieDetails, setMovieDetails] = useState({});
+    const [movieDetail, setMovieDetail] = useState({});
     const movieService = new MovieService();
 
     const contentLoad = () => {
         setLoading(true);
         movieService.fetchMovieDetails(id).then(
             (response) => {
-                setMovieDetails(response);
+                setMovieDetail(response);
                 setErrorResponse(null);
                 setLoading(false);
             },
             (error) => {
-                setMovieDetails({});
+                setMovieDetail({});
                 setErrorResponse(error);
                 setLoading(false);
             }
@@ -34,12 +35,14 @@ const PopularMovieDetail = () => {
     return (
         <div>
             {loading && <Loading />}
-            {errorResponse && <Error mainTitle={errorResponse.message} />}
-            {!loading && (
-                <>
-                    <h1>{movieDetails.title}</h1>
-
-                </>
+            {errorResponse && <Error mainTitle={errorResponse.status} />}
+            {!loading && movieDetail && movieDetail.id && (
+                <MovieDetailsCard
+                    id={movieDetail.id}
+                    posterUrl={movieDetail.backdrop_path}
+                    title={movieDetail.title}
+                    overView={movieDetail.overview}
+                />
             )}
         </div>
     );
