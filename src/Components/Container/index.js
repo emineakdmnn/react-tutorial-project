@@ -3,9 +3,10 @@ import styles from './style.module.scss'
 import Header from "../NavBar/Header";
 import cn from "classnames";
 import Footer from "../Footer/Footer";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Popular from "../../pages/Popular";
-import PopularDetails from "../../pages/Popular/PopularDetails";
+import PopularDetail from "../../pages/Popular/PopularDetails";
+import TopRatedDetail from "../../pages/TopRated/TopRatedDetail";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
 import ErrorBoundary from "../Error/ErrorBoundary";
@@ -16,32 +17,37 @@ function Container(props) {
         {
             title: 'HomePage',
             path: '',
-            element: <Popular />,
+            element: <Popular/>,
         },
         {
             title: 'HomePage',
             path: '/home',
-            element: <Popular />,
+            element: <Popular/>,
         },
         {
             title: 'Popular',
             path: '/popular-movies',
-            element: <Popular />,
+            element: <Popular/>,
         },
         {
-            title: 'PopularDetails',
+            title: 'Popular Detail',
             path: '/popular-movie-id/:id',
-            element: <PopularDetails/>
+            element: <PopularDetail/>
         },
         {
             title: 'Top Rated',
             path: '/top-rated-movies',
-            element: <TopRated />,
+            element: <TopRated/>,
+        },
+        {
+            title: 'Top Rated Detail',
+            path: '/top-rated-movie-id',
+            element: <TopRatedDetail/>,
         },
         {
             title: 'Up Coming',
             path: '/up-coming-movies',
-            element: <UpComing />,
+            element: <UpComing/>,
         },
         {
             title: 'Not Found',
