@@ -11,6 +11,7 @@ import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
 import ErrorBoundary from "../Error/ErrorBoundary";
 import Error from "../Error";
+import UpComingDetail from "../../pages/MoviesDetail/UpComingDetail";
 
 function Container(props) {
     const router = createBrowserRouter([
@@ -48,6 +49,11 @@ function Container(props) {
             title: 'Up Coming',
             path: '/up-coming-movies',
             element: <UpComing/>,
+        },
+        {
+            title: 'Up Coming',
+            path: '/up-coming-movie-id/:id',
+            element: <UpComingDetail/>,
         },
         {
             title: 'Not Found',
