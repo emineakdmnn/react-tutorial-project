@@ -5,8 +5,8 @@ import cn from "classnames";
 import Footer from "../Footer/Footer";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Popular from "../../pages/Popular";
-import PopularDetail from "../../pages/Popular/PopularDetails";
-import TopRatedDetail from "../../pages/TopRated/TopRatedDetail";
+import PopularDetail from "../../pages/MoviesDetail/PopularDetail";
+import TopRatedDetail from "../../pages/MoviesDetail/TopRatedDetail";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
 import ErrorBoundary from "../Error/ErrorBoundary";
@@ -30,7 +30,7 @@ function Container(props) {
             element: <Popular/>,
         },
         {
-            title: 'Popular Detail',
+            title: 'Popular MoviesDetail',
             path: '/popular-movie-id/:id',
             element: <PopularDetail/>
         },
@@ -40,7 +40,7 @@ function Container(props) {
             element: <TopRated/>,
         },
         {
-            title: 'Top Rated Detail',
+            title: 'Top Rated MoviesDetail',
             path: '/top-rated-movie-id',
             element: <TopRatedDetail/>,
         },
