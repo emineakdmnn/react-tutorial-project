@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
-import styles from '../../Components/Container/style.module.scss';
+import styles from '../../Components/Container/Movie/style.module.scss';
 import MovieService from '../../services/MovieService';
 import { Loading } from '../../Components/Loading';
 import MovieCard from '../../Components/Cards/MovieCard';

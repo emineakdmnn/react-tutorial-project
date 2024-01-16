@@ -1,20 +1,21 @@
 import React from "react";
-import {HeaderItem} from "./HeaderItem";
+import {HeaderMovieItem} from "./Movie/HeaderMovieItem";
 import PropTypes from "prop-types";
+
 
 function Header(props) {
     const menuItems = [
         {
-            title: 'Popular',
-            path: '/popular-movies',
+            title: 'Movies',
+            path: '/movies',
         },
         {
-            title: 'Top Rated',
-            path: '/top-rated-movies',
+            title: 'Series',
+            path: '/series',
         },
         {
-            title: 'Up Coming',
-            path: '/up-coming-movies'
+            title: 'Popular People',
+            path: '/popular-person'
         }
     ]
 
@@ -23,14 +24,16 @@ function Header(props) {
             <h3>{props.headerTitle}</h3>
             <nav>
                 {menuItems.map((menuItem, index) => (
-                    <HeaderItem key={menuItem.title} title={menuItem.title} path={menuItem.path} style={{ margin: '10px', color: 'red' }} />
+                    <HeaderMovieItem key={menuItem.title} title={menuItem.title} path={menuItem.path} style={{ margin: '10px', color: 'red' }} />
                 ))}
             </nav>
         </header>
     );
+
 }
 
 Header.propTypes={
     headerTitle: PropTypes.string.isRequired
 }
+
 export default Header;

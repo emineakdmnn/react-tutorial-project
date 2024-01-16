@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import styles from "../../Container/style.module.scss";
+import styles from "../../Container/Movie/style.module.scss";
 import PropTypes from "prop-types";
 import Global from "../../../helpers/Global";
 
