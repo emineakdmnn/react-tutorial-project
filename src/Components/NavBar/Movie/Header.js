@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {HeaderItem} from "../HeaderItem";
 
-function HeaderMovie(props) {
+function Header(props) {
     const menuItems = [
         {
             title: 'Popular',
@@ -30,7 +30,7 @@ function HeaderMovie(props) {
     );
 }
 
-HeaderMovie.propTypes={
+Header.propTypes={
     headerTitle: PropTypes.string.isRequired
 }
-export default HeaderMovie;
+export default Header;

@@ -1,5 +1,5 @@
 import React from "react";
-import {HeaderMovieItem} from "./Movie/HeaderMovieItem";
+import {HeaderItem} from "./Movie/HeaderItem";
 import PropTypes from "prop-types";
 
 
@@ -24,7 +24,7 @@ function Header(props) {
             <h3>{props.headerTitle}</h3>
             <nav>
                 {menuItems.map((menuItem, index) => (
-                    <HeaderMovieItem key={menuItem.title} title={menuItem.title} path={menuItem.path} style={{ margin: '10px', color: 'red' }} />
+                    <HeaderItem key={menuItem.title} title={menuItem.title} path={menuItem.path} style={{ margin: '10px', color: 'red' }} />
                 ))}
             </nav>
         </header>

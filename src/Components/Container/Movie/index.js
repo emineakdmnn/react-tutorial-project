@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './style.module.scss'
-import HeaderMovie from "../../NavBar/Movie/HeaderMovie";
+import Header from "../../NavBar/Movie/Header";
 import cn from "classnames";
 import Footer from "../../Footer/Footer";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
@@ -55,7 +55,7 @@ function Container(props) {
     return (
         <ErrorBoundary>
             <div className={cn(styles['fixed-header'])}>
-                <HeaderMovie headerTitle={'MOVİES'}></HeaderMovie>
+                <Header headerTitle={'MOVİES'}></Header>
             </div>
             <div className={cn(styles['container'])}>
                 <RouterProvider router={router}/>
