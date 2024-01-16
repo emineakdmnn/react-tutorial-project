@@ -5,7 +5,7 @@ import cn from "classnames";
 import Footer from "../Footer/Footer";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Popular from "../../pages/Popular";
-import PopularDetail from "../../pages/Popular/PopularDetail";
+import PopularDetail from "../../pages/Popular/Detail";
 import TopRatedDetail from "../../pages/TopRated/TopRatedDetail";
 import TopRated from "../../pages/TopRated";
 import UpComing from "../../pages/UpComing";
@@ -64,15 +64,17 @@ function Container(props) {
 
     return (
         <ErrorBoundary>
-            <div className={cn(styles['header-area'])}>
+            <div className={cn(styles['fixed-header'])}>
                 <Header headerTitle={'MOVİES'}></Header>
             </div>
-            <RouterProvider router={router}/>
-            <div className={cn(styles['footer-area'])}>
+            <div className={cn(styles['container'])}>
+                <RouterProvider router={router}/>
+            </div>
+            <div className={cn(styles['fixed-footer'])}>
                 <Footer></Footer>
             </div>
         </ErrorBoundary>
-    );
+);
 }
 
 export default Container;

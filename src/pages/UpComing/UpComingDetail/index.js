@@ -33,7 +33,7 @@ const UpComingDetail = () => {
     }, [id]);
 
     return (
-        <div>
+        <>
             {loading && <Loading />}
             {errorResponse && <Error mainTitle={errorResponse.status} />}
             {!loading && movieDetail && movieDetail.id && (
@@ -44,7 +44,7 @@ const UpComingDetail = () => {
                     overView={movieDetail.overview}
                 />
             )}
-        </div>
+        </>
     );
 };
 

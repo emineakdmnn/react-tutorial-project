@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterItem } from "./FooterItem";
+import {FooterItem} from "./FooterItem";
 import styles from './style.module.scss'
 
 function Footer() {
@@ -12,15 +12,13 @@ function Footer() {
 
     return (
         <div className={styles.footer}>
-            <nav>
-                {menuItems.map((menuItem) => (
-                    <FooterItem
-                        key={menuItem.title}
-                        title={menuItem.title}
-                        link={menuItem.link}
-                    />
-                ))}
-            </nav>
+            {menuItems.map((menuItem) => (
+                <FooterItem
+                    key={menuItem.title}
+                    title={menuItem.title}
+                    link={menuItem.link}
+                />
+            ))}
         </div>
     );
 }

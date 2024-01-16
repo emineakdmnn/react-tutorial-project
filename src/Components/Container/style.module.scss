@@ -1,16 +1,29 @@
 $borderColor: darkred;
 $backgroundColor: #333;
 
-.header-area {
-  height: 80px;
-  border: 2px solid $borderColor;
-  background: var(--header-backgorund-color);
-  padding: 0 10px 20px;
+body {
+  padding-top: 80px;
+  padding-bottom: 40px;
 }
 
-.footer-area {
-  height: 30px;
-  position: absolute;
+.container {
+  width: 80%;
+  margin: 0 auto; /* Center the DIV horizontally */
+}
+
+.fixed-header, .fixed-footer {
+  width: 100%;
+  position: fixed;
+  background: $backgroundColor;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.fixed-header{
+  top: 0;
+}
+
+.fixed-footer{
   bottom: 0;
 }
 

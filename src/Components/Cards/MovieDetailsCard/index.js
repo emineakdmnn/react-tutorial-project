@@ -17,7 +17,7 @@ function MovieDetailsCard(props) {
     }, [props])
 
     return (
-        <li key={id} className={styles['movie-details-card']}>
+        <div key={id} className={styles['movie-details-card']}>
             <img
                 src={Global.tmdbImageBaseUrlw500+posterUrl}
                 alt={title}
@@ -25,7 +25,7 @@ function MovieDetailsCard(props) {
             />
             <div className={styles['title-label']}>{title}</div>
             <div className={styles['title-label']}>{overView}</div>
-        </li>
+        </div>
     );
 }
 
