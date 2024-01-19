@@ -8,23 +8,37 @@ body {
 
 .container {
   width: 80%;
-  margin: 0 auto; /* Center the DIV horizontally */
+  margin: 50px auto;
 }
 
 .fixed-header, .fixed-footer {
   width: 100%;
   position: fixed;
-  background: $backgroundColor;
-  padding: 10px 0;
-  color: #fff;
+  background: #000000;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+  font-style: normal;
+  color: red;
+
 }
 
-.fixed-header{
+.fixed-footer {
+  bottom: 0;
+}
+
+.fixed-header {
   top: 0;
 }
 
-.fixed-footer{
-  bottom: 0;
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 40px;
+  margin-right: 10px; // Logo ile içerik arasına boşluk eklemek için
 }
 
 .content-text {
@@ -32,6 +46,7 @@ body {
   color: var(--font-color);
   font-size: 20px;
 }
+
 
 .movie-list {
   list-style: none;
