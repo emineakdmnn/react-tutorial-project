@@ -4,6 +4,7 @@ import { Loading } from '../../../Components/Loading';
 import Error from '../../../Components/Error';
 import MovieService from "../../../services/MovieService";
 import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
+import Header from "../../../Components/NavBar/Movie/Header";
 
 const UpComingDetail = () => {
     const { id } = useParams();
@@ -33,7 +34,8 @@ const UpComingDetail = () => {
     }, [id]);
 
     return (
-        <>
+        <div>
+            <Header headerTitle={movieDetail.title}/>
             {loading && <Loading />}
             {errorResponse && <Error mainTitle={errorResponse.status} />}
             {!loading && movieDetail && movieDetail.id && (
@@ -44,7 +46,7 @@ const UpComingDetail = () => {
                     overView={movieDetail.overview}
                 />
             )}
-        </>
+        </div>
     );
 };
 

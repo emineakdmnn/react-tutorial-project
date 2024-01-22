@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {useLocation, useParams} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import { Loading } from '../../../Components/Loading';
 import Error from '../../../Components/Error';
 import MovieService from "../../../services/MovieService";
-import styles from "../../styles/styles.module.scss"
 import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
+import Header from "../../../Components/NavBar/Movie/Header";
 
 const TopRatedDetails = () => {
     const location = useLocation();
@@ -37,7 +37,8 @@ const TopRatedDetails = () => {
     }, [id]);
 
     return (
-        <div className={styles["movie-details-card"]}>
+        <div>
+            <Header headerTitle={movieDetails.title}/>
             {loading && <Loading />}
             {errorResponse && <Error mainTitle={errorResponse.status} />}
             {!loading && (

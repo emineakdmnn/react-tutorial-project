@@ -5,6 +5,7 @@ import MovieCard from "../../Components/Cards/MovieCard";
 import {Loading} from "../../Components/Loading";
 import Index from "../../Components/Error";
 import {Link} from "react-router-dom";
+import Header from "../../Components/NavBar/Movie/Header";
 
 const UpComing = () => {
     const [loading, setLoading] = useState(true);
@@ -13,7 +14,7 @@ const UpComing = () => {
     const movieService = new MovieService();
     const contentLoad =  () => {
         setLoading(true)
-         movieService.fetchUpComingMovies().then((response)=>{
+         movieService.fetchUpcomingMovies().then((response)=>{
             setUpComingMovies(response.results)
              setErrorResponse(null);
             setLoading(false)
@@ -29,20 +30,23 @@ const UpComing = () => {
     }, []);
 
     return (
-        <ul className={styles['movie-list']}>
-            {loading && <Loading />}
-            {errorResponse && <Index mainTitle={errorResponse.status} />}
-            {!loading &&
-                upComingMovies?.map((movie, index) => (
-                    <Link key={'up-coming-movies' + index} to={`/up-coming-movie-id/${movie.id}`}>
-                        <MovieCard
-                            id={movie.id}
-                            posterUrl={movie.poster_path}
-                            title={movie.title}
-                        />
-                    </Link>
-                ))}
-        </ul>
+        <div>
+            <Header headerTitle={'UP COMİNG MOVİES'}/>
+            <ul className={styles['movie-list']}>
+                {loading && <Loading/>}
+                {errorResponse && <Index mainTitle={errorResponse.status}/>}
+                {!loading &&
+                    upComingMovies?.map((movie, index) => (
+                        <Link key={'up-coming-movies' + index} to={`/up-coming-movie-id/${movie.id}`}>
+                            <MovieCard
+                                id={movie.id}
+                                posterUrl={movie.poster_path}
+                                title={movie.title}
+                            />
+                        </Link>
+                    ))}
+            </ul>
+        </div>
     );
 };
 

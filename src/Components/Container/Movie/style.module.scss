@@ -2,13 +2,14 @@ $borderColor: darkred;
 $backgroundColor: #333;
 
 body {
+  margin: 0;
   padding-top: 80px;
   padding-bottom: 40px;
 }
 
 .container {
   width: 80%;
-  margin: 0 auto; /* Center the DIV horizontally */
+  margin: 0 auto;
 }
 
 .fixed-header, .fixed-footer {
@@ -19,11 +20,11 @@ body {
   color: #fff;
 }
 
-.fixed-header{
+.fixed-header {
   top: 0;
 }
 
-.fixed-footer{
+.fixed-footer {
   bottom: 0;
 }
 

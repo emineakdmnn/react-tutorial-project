@@ -2,16 +2,18 @@ import axios from 'axios';
 
 class MovieService {
     constructor() {
-        this.baseUrl = 'https://api.themoviedb.org/3/movie';
+        this.baseUrls = {
+            movie: 'https://api.themoviedb.org/3/movie',
+            series: 'https://api.themoviedb.org/3/tv'
+        };
         this.apiKey = '143b514b8f21e9b1982a0d0202a3f1e8';
     }
 
-    fetchData(endpoint) {
-        return axios.get(`${this.baseUrl}/${endpoint}?api_key=${this.apiKey}`)
-            .then(response => {
-                response.data.status = response.status
-                return response.data
-            })
+    fetchData(endpoint, type) {
+        const baseUrl = type === 'movie' ? this.baseUrls.movie : this.baseUrls.series;
+
+        return axios.get(`${baseUrl}/${endpoint}?api_key=${this.apiKey}`)
+            .then(response => response.data)
             .catch(error => {
                 console.error(error);
                 throw error;
@@ -19,19 +21,36 @@ class MovieService {
     }
 
     fetchMovieDetails(movieId) {
-        return this.fetchData(movieId);
+        return this.fetchData(movieId, 'movie');
     }
 
     fetchPopularMovies() {
-        return this.fetchData('popular');
+        return this.fetchData('popular', 'movie');
     }
 
-    fetchUpComingMovies() {
-        return this.fetchData('upcoming');
+    fetchUpcomingMovies() {
+        return this.fetchData('upcoming', 'movie');
     }
 
     fetchTopRatedMovies() {
-        return this.fetchData('top_rated');
+        return this.fetchData('top_rated', 'movie');
+    }
+
+    fetchAiringTodaySeries() {
+        return this.fetchData('airing_today', 'series')
+    }
+
+    fetchOnTheAirSeries() {
+        return this.fetchData('on_the_air', 'series')
+    }
+
+    fetchPopularSeries() {
+        return this.fetchData('popular', 'series')
+    }
+
+    fetchTopRatedSeries() {
+        return this.fetchData('top_rated', 'series')
     }
 }
+
 export default MovieService;
