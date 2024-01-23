@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
-import styles from '../../Components/Container/Movie/style.module.scss';
-import Service from '../../services/Service';
-import { Loading } from '../../Components/Loading';
-import MovieCard from '../../Components/Cards/MovieCard';
-import Index from '../../Components/Error';
-import Header from "../../Components/NavBar/Movie/Header";
+import styles from '../../../Components/Container/Movie/style.module.scss';
+import Service from '../../../services/Service';
+import { Loading } from '../../../Components/Loading';
+import MovieCard from '../../../Components/Cards/MovieCard';
+import Index from '../../../Components/Error';
+import Header from "../../../Components/NavBar/Movie/Header";
 import cn from "classnames";
 
 const Popular = () => {

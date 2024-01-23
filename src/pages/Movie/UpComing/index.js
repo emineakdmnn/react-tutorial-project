@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../Components/Container/Movie/style.module.scss";
-import Service from "../../services/Service";
-import MovieCard from "../../Components/Cards/MovieCard";
-import {Loading} from "../../Components/Loading";
-import Index from "../../Components/Error";
+import styles from "../../../Components/Container/Movie/style.module.scss";
+import Service from "../../../services/Service";
+import MovieCard from "../../../Components/Cards/MovieCard";
+import {Loading} from "../../../Components/Loading";
+import Index from "../../../Components/Error";
 import {Link} from "react-router-dom";
-import Header from "../../Components/NavBar/Movie/Header";
+import Header from "../../../Components/NavBar/Movie/Header";
 
 const UpComing = () => {
     const [loading, setLoading] = useState(true);

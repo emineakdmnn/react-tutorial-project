@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import styles from "../../Components/Container/Movie/style.module.scss"
-import Service from "../../services/Service";
-import MovieCard from "../../Components/Cards/MovieCard";
-import {Loading} from "../../Components/Loading";
+import styles from "../../../Components/Container/Movie/style.module.scss"
+import Service from "../../../services/Service";
+import MovieCard from "../../../Components/Cards/MovieCard";
+import {Loading} from "../../../Components/Loading";
 import {Link} from "react-router-dom";
-import Index from "../../Components/Error";
-import Header from "../../Components/NavBar/Movie/Header";
+import Index from "../../../Components/Error";
+import Header from "../../../Components/NavBar/Movie/Header";
 
 const TopRated = ({}) => {
     const [loading, setLoading] = useState(true);

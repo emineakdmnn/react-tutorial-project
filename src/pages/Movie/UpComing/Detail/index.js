@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
-import {Loading} from '../../../Components/Loading';
-import Error from '../../../Components/Error';
-import Service from "../../../services/Service";
-import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
-import Header from "../../../Components/NavBar/Movie/Header";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Loading } from '../../../../Components/Loading';
+import Error from '../../../../Components/Error';
+import Service from "../../../../services/Service";
+import MovieDetailsCard from "../../../../Components/Cards/MovieDetailsCard";
+import Header from "../../../../Components/NavBar/Movie/Header";
 
-const PopularMovieDetail = () => {
-    const {id} = useParams();
+const UpComingDetail = () => {
+    const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
     const [movieDetail, setMovieDetail] = useState({});
@@ -36,8 +36,8 @@ const PopularMovieDetail = () => {
     return (
         <div>
             <Header headerTitle={movieDetail.title}/>
-            {loading && <Loading/>}
-            {errorResponse && <Error mainTitle={errorResponse.status}/>}
+            {loading && <Loading />}
+            {errorResponse && <Error mainTitle={errorResponse.status} />}
             {!loading && movieDetail && movieDetail.id && (
                 <MovieDetailsCard
                     id={movieDetail.id}
@@ -50,4 +50,4 @@ const PopularMovieDetail = () => {
     );
 };
 
-export default PopularMovieDetail;
+export default UpComingDetail;

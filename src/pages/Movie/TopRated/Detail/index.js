@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {useLocation} from 'react-router-dom';
-import { Loading } from '../../../Components/Loading';
-import Error from '../../../Components/Error';
-import Service from "../../../services/Service";
-import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
-import Header from "../../../Components/NavBar/Movie/Header";
+import { Loading } from '../../../../Components/Loading';
+import Error from '../../../../Components/Error';
+import Service from "../../../../services/Service";
+import MovieDetailsCard from "../../../../Components/Cards/MovieDetailsCard";
+import Header from "../../../../Components/NavBar/Movie/Header";
 
 const TopRatedDetails = () => {
     const location = useLocation();
