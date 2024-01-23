@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class MovieService {
+class Service {
     constructor() {
         this.baseUrls = {
             movie: 'https://api.themoviedb.org/3/movie',
@@ -53,4 +53,4 @@ class MovieService {
     }
 }
 
-export default MovieService;
+export default Service;

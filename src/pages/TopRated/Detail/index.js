@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useLocation} from 'react-router-dom';
 import { Loading } from '../../../Components/Loading';
 import Error from '../../../Components/Error';
-import MovieService from "../../../services/MovieService";
+import Service from "../../../services/Service";
 import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
 import Header from "../../../Components/NavBar/Movie/Header";
 
@@ -14,7 +14,7 @@ const TopRatedDetails = () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
     const [movieDetails, setMovieDetails] = useState({});
-    const movieService = new MovieService();
+    const movieService = new Service();
 
     const contentLoad = () => {
         setLoading(true);

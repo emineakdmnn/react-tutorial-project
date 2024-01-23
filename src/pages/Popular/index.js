@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
 import styles from '../../Components/Container/Movie/style.module.scss';
-import MovieService from '../../services/MovieService';
+import Service from '../../services/Service';
 import { Loading } from '../../Components/Loading';
 import MovieCard from '../../Components/Cards/MovieCard';
 import Index from '../../Components/Error';
@@ -12,7 +12,7 @@ const Popular = () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
     const [popularMovies, setPopularMovies] = useState([]);
-    const movieService = new MovieService();
+    const movieService = new Service();
 
     const contentLoad = () => {
         setLoading(true);

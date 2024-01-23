@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../Components/Container/Movie/style.module.scss";
-import MovieService from "../../services/MovieService";
+import Service from "../../services/Service";
 import MovieCard from "../../Components/Cards/MovieCard";
 import {Loading} from "../../Components/Loading";
 import Index from "../../Components/Error";
@@ -11,7 +11,7 @@ const UpComing = () => {
     const [loading, setLoading] = useState(true);
     const [upComingMovies, setUpComingMovies] = useState([]);
     const [errorResponse, setErrorResponse] = useState(null);
-    const movieService = new MovieService();
+    const movieService = new Service();
     const contentLoad =  () => {
         setLoading(true)
          movieService.fetchUpcomingMovies().then((response)=>{

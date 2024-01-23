@@ -32,7 +32,7 @@ function MovieCard(props) {
 
 MovieCard.propTypes = {
     id: PropTypes.number.isRequired,
-    posterUrl: PropTypes.string.isRequired,
+    posterUrl: PropTypes.string,
     title: PropTypes.string.isRequired
 }
 
