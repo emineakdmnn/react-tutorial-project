@@ -41,7 +41,7 @@ const AiringToday = () => {
                 {errorResponse && <Index mainTitle={errorResponse.status}/>}
                 {!loading &&
                     airingTodaySeries?.map((series, index) => (
-                        <Link key={'airing_today-series' + index} to={`/airing_today-series-id/${series.id}`}>
+                        <Link key={'airing-today-series' + index} to={`/airing-today-series-id/${series.id}`}>
                             <MovieCard
                                 id={series.id}
                                 posterUrl={series.poster_path}

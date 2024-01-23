@@ -51,6 +51,10 @@ class Service {
     fetchTopRatedSeries() {
         return this.fetchData('top_rated', 'series')
     }
+
+    fetchSeriesDetails(seriesId) {
+        return this.fetchData(seriesId, 'series');
+    }
 }
 
 export default Service;

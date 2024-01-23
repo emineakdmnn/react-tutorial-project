@@ -11,6 +11,10 @@ import AiringToday from "./pages/Series/AiringToday";
 import OnTheAir from "./pages/Series/OnTheAir";
 import PopularSeries from "./pages/Series/Popular";
 import TopRatedSeries from "./pages/Series/TopRated";
+import AiringTodaySeriesDetail from "./pages/Series/AiringToday/Detail";
+import OnTheAirSeriesDetail from "./pages/Series/OnTheAir/Detail";
+import PopularSeriesDetail from "./pages/Series/Popular/Detail";
+import TopRatedSeriesDetail from "./pages/Series/TopRated/Detail";
 
 function App() {
     return (
@@ -26,9 +30,13 @@ function App() {
                 <Route path="/up-coming-movie-id/:id" element={<UpComingDetail/>}/>
                 <Route path="/series" element={<AiringToday/>}/>
                 <Route path="/airing-today-series" element={<AiringToday/>}/>
+                <Route path="/airing-today-series-id/:id" element={<AiringTodaySeriesDetail/>}/>
                 <Route path="/on-the-air-series" element={<OnTheAir/>}/>
+                <Route path="/on-the-air-series-id/:id" element={<OnTheAirSeriesDetail/>}/>
                 <Route path="/popular-series" element={<PopularSeries/>}/>
+                <Route path="/popular-series-id/:id" element={<PopularSeriesDetail/>}/>
                 <Route path="/top-rated-series" element={<TopRatedSeries/>}/>
+                <Route path="/top-rated-series-id/:id" element={<TopRatedSeriesDetail/>}/>
 
             </Routes>
         </Router>
