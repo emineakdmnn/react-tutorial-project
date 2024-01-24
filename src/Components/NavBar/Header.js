@@ -1,6 +1,7 @@
 import React from "react";
 import {HeaderItem} from "./Movie/HeaderItem";
 import PropTypes from "prop-types";
+import styles from "../Container/Movie/style.module.scss";
 
 
 function Header(props) {
@@ -20,7 +21,7 @@ function Header(props) {
     ]
 
     return (
-        <header>
+        <header className={styles['fixed-header']}>
             <h3>{props.headerTitle}</h3>
             <nav>
                 {menuItems.map((menuItem, index) => (

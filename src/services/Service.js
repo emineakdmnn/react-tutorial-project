@@ -4,13 +4,15 @@ class Service {
     constructor() {
         this.baseUrls = {
             movie: 'https://api.themoviedb.org/3/movie',
-            series: 'https://api.themoviedb.org/3/tv'
+            series: 'https://api.themoviedb.org/3/tv',
+            person: 'https://api.themoviedb.org/3/person'
         };
         this.apiKey = '143b514b8f21e9b1982a0d0202a3f1e8';
     }
 
+
     fetchData(endpoint, type) {
-        const baseUrl = type === 'movie' ? this.baseUrls.movie : this.baseUrls.series;
+        const baseUrl = type === 'movie' ? this.baseUrls.movie : (type === 'series' ? this.baseUrls.series : this.baseUrls.person);
 
         return axios.get(`${baseUrl}/${endpoint}?api_key=${this.apiKey}`)
             .then(response => response.data)
@@ -54,6 +56,10 @@ class Service {
 
     fetchSeriesDetails(seriesId) {
         return this.fetchData(seriesId, 'series');
+    }
+
+    fetchPopularPerson() {
+        return this.fetchData('popular', 'person')
     }
 }
 

@@ -15,6 +15,7 @@ import AiringTodaySeriesDetail from "./pages/Series/AiringToday/Detail";
 import OnTheAirSeriesDetail from "./pages/Series/OnTheAir/Detail";
 import PopularSeriesDetail from "./pages/Series/Popular/Detail";
 import TopRatedSeriesDetail from "./pages/Series/TopRated/Detail";
+import PopularPerson from "./pages/PopularPerson";
 
 function App() {
     return (
@@ -37,6 +38,7 @@ function App() {
                 <Route path="/popular-series-id/:id" element={<PopularSeriesDetail/>}/>
                 <Route path="/top-rated-series" element={<TopRatedSeries/>}/>
                 <Route path="/top-rated-series-id/:id" element={<TopRatedSeriesDetail/>}/>
+                <Route path="/popular-person" element={<PopularPerson/>}/>
             </Routes>
         </Router>
     );
