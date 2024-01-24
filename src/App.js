@@ -37,7 +37,6 @@ function App() {
                 <Route path="/popular-series-id/:id" element={<PopularSeriesDetail/>}/>
                 <Route path="/top-rated-series" element={<TopRatedSeries/>}/>
                 <Route path="/top-rated-series-id/:id" element={<TopRatedSeriesDetail/>}/>
-
             </Routes>
         </Router>
     );

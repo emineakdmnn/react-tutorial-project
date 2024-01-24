@@ -45,7 +45,7 @@ const Popular = () => {
                         <Link key={'popular-movies' + index} to={`/popular-movie-id/${movie.id}`}>
                             <MovieCard
                                 id={movie.id}
-                                posterUrl={movie.poster_path}
+                                posterUrl={movie.poster_path+'1232312'}
                                 title={movie.title}
                             />
                         </Link>
