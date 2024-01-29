@@ -6,7 +6,6 @@ import { Loading } from '../../../Components/Loading';
 import MovieCard from '../../../Components/Cards/MovieCard';
 import Index from '../../../Components/Error';
 import Header from "../../../Components/NavBar/Movie/Header";
-import cn from "classnames";
 
 const Popular = () => {
     const [loading, setLoading] = useState(true);

@@ -1,0 +1,41 @@
+.trend-movie-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px;
+  flex-direction: row;
+}
+
+.trend-movie-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-left: 10px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.trend-movie-card {
+  flex: 0 0 auto;
+  width: 200px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #555;
+  }
+}

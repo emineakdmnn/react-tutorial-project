@@ -5,14 +5,18 @@ class Service {
         this.baseUrls = {
             movie: 'https://api.themoviedb.org/3/movie',
             series: 'https://api.themoviedb.org/3/tv',
-            person: 'https://api.themoviedb.org/3/person'
+            person: 'https://api.themoviedb.org/3/person',
+            trending: 'https://api.themoviedb.org/3/trending'
+
         };
         this.apiKey = '143b514b8f21e9b1982a0d0202a3f1e8';
     }
 
 
     fetchData(endpoint, type) {
-        const baseUrl = type === 'movie' ? this.baseUrls.movie : (type === 'series' ? this.baseUrls.series : this.baseUrls.person);
+        const baseUrl = this.baseUrls[type] || this.baseUrls.movie || this.baseUrls.trending;
+
+
 
         return axios.get(`${baseUrl}/${endpoint}?api_key=${this.apiKey}`)
             .then(response => response.data)
@@ -60,6 +64,10 @@ class Service {
 
     fetchPopularPerson() {
         return this.fetchData('popular', 'person')
+    }
+
+    fetchTrendMovies() {
+        return this.fetchData('movie/week','trending')
     }
 }
 

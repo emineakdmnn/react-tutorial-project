@@ -4,6 +4,7 @@ import cn from "classnames";
 import styles from "./style.module.scss";
 import Footer from "../../Footer/Footer";
 import Header from "../../NavBar/Header";
+import TrendMovie from "../../../pages/Trend/Movie";
 
 function Container(props) {
     return (
@@ -11,8 +12,8 @@ function Container(props) {
             <div className={cn(styles['fixed-header'])}>
                 <Header headerTitle={'EMİNE'}></Header>
             </div>
-            <div className={cn(styles['container'])}>
-                {props.children}
+            <div>
+                <TrendMovie />
             </div>
             <div className={cn(styles['fixed-footer'])}>
                 <Footer></Footer>
