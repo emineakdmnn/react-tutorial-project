@@ -5,6 +5,7 @@ import { Loading } from '../../Components/Loading';
 import MovieCard from '../../Components/Cards/MovieCard';
 import Index from '../../Components/Error';
 import Header from "../../Components/NavBar/Header";
+import cn from "classnames";
 
 const PopularPerson = () => {
     const [loading, setLoading] = useState(true);
@@ -40,11 +41,11 @@ const PopularPerson = () => {
                 {errorResponse && <Index mainTitle={errorResponse.status}/>}
                 {!loading &&
                     popularPerson?.map((movie, index) => (
-                        <MovieCard  key={'popular-person' + index}
-                                id={movie.id}
-                                posterUrl={movie.profile_path}
-                                title={movie.name}
-                            />
+                        <MovieCard key={'popular-person' + index}
+                                   id={movie.id}
+                                   posterUrl={movie.profile_path}
+                                   title={movie.name}
+                        />
 
                     ))}
             </ul>
