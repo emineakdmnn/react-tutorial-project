@@ -14,7 +14,7 @@ class Service {
 
 
     fetchData(endpoint, type) {
-        const baseUrl = this.baseUrls[type] || this.baseUrls.movie || this.baseUrls.trending;
+        const baseUrl = this.baseUrls[type] || this.baseUrls.movie || this.baseUrls.series || this.baseUrls.person || this.baseUrls.trending ;
 
 
 
@@ -68,6 +68,10 @@ class Service {
 
     fetchTrendMovies() {
         return this.fetchData('movie/week','trending')
+    }
+
+    fetchTrendSeries() {
+        return this.fetchData('tv/week','trending')
     }
 }
 

@@ -5,21 +5,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
-const TrendMovie = () => {
+const TrendSeries = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
-    const [trendMovies, setTrendMovies] = useState([]);
-    const trendMovieService = new Service();
+    const [trendSeries, setTrendSeries] = useState([]);
+    const trendSeriesService = new Service();
 
     const contentLoad = async () => {
         setLoading(true);
         try {
-            const response = await trendMovieService.fetchTrendMovies();
-            setTrendMovies(response.results);
+            const response = await trendSeriesService.fetchTrendSeries();
+            setTrendSeries(response.results);
             setErrorResponse(null);
         } catch (error) {
-            setTrendMovies([]);
+            setTrendSeries([]);
             setErrorResponse(error);
         } finally {
             setLoading(false);
@@ -36,7 +36,7 @@ const TrendMovie = () => {
 
     return (
         <div>
-            <h2 className={styles['trend-movie-header']}>Trend Filmler</h2>
+            <h2 className={styles['trend-movie-header']}>Trend Diziler</h2>
             <Swiper
                 slidesPerView={'auto'}
                 modules={[EffectFade, Navigation, Pagination, Autoplay, Mousewheel]}
@@ -49,12 +49,12 @@ const TrendMovie = () => {
                 navigation
                 onSlideChange={handleSlideChange}
             >
-                {trendMovies.map((movie, index) => (
+                {trendSeries.map((series, index) => (
                     <SwiperSlide key={index} style={{ width: 'auto', margin: '0px 10px' }}>
                         <div className={styles['trend-movie-card']}>
-                            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
-                            <h3>{movie.title}</h3>
-                            <p>{movie.release_date}</p>
+                            <img src={`https://image.tmdb.org/t/p/w200${series.poster_path}`} alt={series.title} />
+                            <h3>{series.title}</h3>
+                            <p>{series.release_date}</p>
                         </div>
                     </SwiperSlide>
                 ))}
@@ -63,4 +63,4 @@ const TrendMovie = () => {
     );
 };
 
-export default TrendMovie;
+export default TrendSeries;
