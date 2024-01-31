@@ -1,14 +1,15 @@
-.trend-movie-container {
+.trend-container {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   justify-content: flex-start;
   gap: 10px;
   padding: 10px;
+  margin-bottom: 50px;
   flex-direction: row;
 }
 
-.trend-movie-header {
+.trend-header {
   font-size: 24px;
   font-weight: bold;
   margin-top: 50px;
@@ -17,7 +18,7 @@
   margin-bottom: 15px;
 }
 
-.trend-movie-card {
+.trend-card {
   flex: 0 0 auto;
   width: 200px;
   border: 1px solid #ddd;
