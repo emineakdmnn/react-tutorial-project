@@ -74,3 +74,19 @@ body {
 .movie-detail-value {
   margin-bottom: 10px;
 }
+
+.search-container {
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+
+  input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+}

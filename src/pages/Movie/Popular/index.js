@@ -17,7 +17,7 @@ const Popular = () => {
     const contentLoad = (searchTerm = '') => {
         setLoading(true);
         if (searchTerm) {
-            movieService.fetchSearch(searchTerm).then(
+            movieService.fetchSearchMovie(searchTerm).then(
                 (response) => {
                     setPopularMovies(response.results);
                     setErrorResponse(null);
@@ -59,7 +59,6 @@ const Popular = () => {
             contentLoad();
         }
     };
-
 
     return (
         <div>

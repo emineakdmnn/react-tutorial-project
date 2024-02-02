@@ -7,7 +7,8 @@ class Service {
             series: 'https://api.themoviedb.org/3/tv',
             person: 'https://api.themoviedb.org/3/person',
             trending: 'https://api.themoviedb.org/3/trending',
-            search: 'https://api.themoviedb.org/3/search/movie'
+            searchMovie: 'https://api.themoviedb.org/3/search/movie',
+            searchSeries: 'https://api.themoviedb.org/3/search/tv'
 
         };
         this.apiKey = '143b514b8f21e9b1982a0d0202a3f1e8';
@@ -75,8 +76,19 @@ class Service {
         return this.fetchData('tv/week','trending')
     }
 
-    fetchSearch(keyword) {
-        const baseUrl = this.baseUrls.search;
+    fetchSearchMovie(keyword) {
+        const baseUrl = this.baseUrls.searchMovie;
+
+        return axios.get(`${baseUrl}?api_key=${this.apiKey}&query=${keyword}`)
+            .then(response => response.data)
+            .catch(error => {
+                console.error(error);
+                throw error;
+            });
+    }
+
+    fetchSearchSeries(keyword) {
+        const baseUrl = this.baseUrls.searchSeries;
 
         return axios.get(`${baseUrl}?api_key=${this.apiKey}&query=${keyword}`)
             .then(response => response.data)
