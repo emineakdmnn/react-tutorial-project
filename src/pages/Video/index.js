@@ -8,6 +8,8 @@ const VideoPlayer = (props) => {
     const videoRef = useRef(null);
 
     useEffect(() => {
+        console.log('Video URL:', videoUrl);
+
         const options = {
             controls: true,
             fluid: true,
@@ -26,7 +28,6 @@ const VideoPlayer = (props) => {
             }
         };
     }, [videoUrl]);
-
 
     return (
         <div>
