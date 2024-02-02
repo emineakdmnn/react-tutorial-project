@@ -44,6 +44,7 @@ const PopularMovieDetail = () => {
                     posterUrl={movieDetail.backdrop_path}
                     title={movieDetail.title}
                     overView={movieDetail.overview}
+                    videoUrl={'https://vjs.zencdn.net/v/oceans.mp4'}
                 />
             )}
         </div>

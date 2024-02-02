@@ -47,6 +47,7 @@ const TopRatedDetails = () => {
                     posterUrl={movieDetails.backdrop_path}
                     title={movieDetails.title}
                     overView={movieDetails.overview}
+                    videoUrl={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
                 />
             )}
         </div>
