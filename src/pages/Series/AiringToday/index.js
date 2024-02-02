@@ -17,7 +17,7 @@ const AiringToday = () => {
     const contentLoad = (searchTerm = '') => {
         setLoading(true);
         if (searchTerm) {
-            seriesService.fetchSearchMovie(searchTerm).then(
+            seriesService.fetchSearchSeries(searchTerm).then(
                 (response) => {
                     setAiringTodaySeries(response.results);
                     setErrorResponse(null);
