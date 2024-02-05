@@ -1,38 +1,37 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
+import VideoJS from "../../Components/Container/VideoJS";
 
 const VideoPlayer = (props) => {
-    const { videoUrl } = props;
-    const videoRef = useRef(null);
+    const playerRef = React.useRef(null);
 
-    useEffect(() => {
-        console.log('Video URL:', videoUrl);
+    const videoJsOptions = {
+        autoplay: true,
+        controls: true,
+        responsive: true,
+        fluid: true,
+        sources: [{
+            src: props.videoUrl,
+            type: 'video/mp4'
+        }]
+    };
 
-        const options = {
-            controls: true,
-            fluid: true,
-            responsive: true,
-            sources: [{
-                src: videoUrl,
-                type: 'video/mp4',
-            }],
-        };
+    const handlePlayerReady = (player) => {
+        playerRef.current = player;
 
-        const player = videojs(videoRef.current, options);
+        player.on('waiting', () => {
+            videojs.log('player is waiting');
+        });
 
-        return () => {
-            if (player) {
-                player.dispose();
-            }
-        };
-    }, [videoUrl]);
+        player.on('dispose', () => {
+            videojs.log('player will dispose');
+        });
+    };
 
     return (
-        <div>
-            <video ref={videoRef} className="video-js vjs-default-skin" />
-        </div>
+        <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
     );
 };
 

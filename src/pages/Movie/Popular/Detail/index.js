@@ -44,7 +44,7 @@ const PopularMovieDetail = () => {
                     posterUrl={movieDetail.backdrop_path}
                     title={movieDetail.title}
                     overView={movieDetail.overview}
-                    videoUrl={'https://vjs.zencdn.net/v/oceans.mp4'}
+                    videoUrl={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
                 />
             )}
         </div>

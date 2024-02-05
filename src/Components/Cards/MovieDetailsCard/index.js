@@ -43,7 +43,7 @@ function MovieDetailsCard(props) {
 
             {showVideo && (
                 <div className={styles['video-overlay']}>
-                    <VideoPlayer videoUrl={videoUrl} onClose={handleCloseVideo} />
+                    <VideoPlayer videoUrl={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"} onClose={handleCloseVideo} />
                 </div>
             )}
         </div>
