@@ -1,7 +1,8 @@
 import React from "react";
 import { HeaderItem } from "./Movie/HeaderItem";
 import PropTypes from "prop-types";
-import logo from "../../images/movie.png"; // Update if necessary
+import logo from "../../images/movie.png";
+import search from "../../images/search.png";
 import styles from "./style.module.scss";
 
 function Header(props) {
@@ -14,7 +15,7 @@ function Header(props) {
     return (
         <div className={styles.header}>
             <header className={styles.headerContent}>
-                <img src={logo} alt="Logo" className={styles.logo} />
+                <img src={logo} alt="Logo" className={styles.logo}/>
                 <nav className={styles.nav}>
                     {menuItems.map((menuItem, index) => (
                         <HeaderItem
@@ -25,6 +26,7 @@ function Header(props) {
                         />
                     ))}
                 </nav>
+                <img src={search} alt="Logo" className={styles.search}/>
             </header>
         </div>
     );
