@@ -1,14 +1,14 @@
 .header {
   color: #fff;
   padding: 20px 20px;
+  z-index: 2;
 }
 
 .headerContent {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Eşit dağıtım sağlar */
+  justify-content: flex-start; /* Change to flex-start */
 }
-
 .logo {
   width: 50px;
   height: 50px;
