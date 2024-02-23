@@ -1,0 +1,39 @@
+.header {
+  color: #fff;
+  padding: 20px 20px;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Eşit dağıtım sağlar */
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Fareyle üzerine gelindiğinde logoyu ölçeklendirin */
+}
+
+
+.nav {
+  display: flex;
+  flex-grow: 1; /* Kalan alanı doldurur */
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.nav a:hover {
+  color: #e5e5e5;
+}
+
