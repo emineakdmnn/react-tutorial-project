@@ -1,13 +1,79 @@
 .footer {
-  background-color: #000000;
   color: #fff;
   bottom: 0;
+  flex-wrap: wrap;
+  display: grid;
+  flex-direction: row;
+  font-size: 5px;
+  margin: 0 0 14px;
+  padding: 0;
   width: 100%;
 }
 
+.footer-item-group {
+  margin: 20px; /* İki grup arasındaki boşluğu belirleyin */
+}
+
+
 .footer-item {
-  color: red;
-  font-size: 16px;
+  color: grey;
+  font-size: 13px;
+  bottom: 40px;
   font-family: 'Arial', sans-serif;
+  position: relative; /* Relative pozisyon ekleyin */
+  cursor: pointer; /* Fare imleci göstermek için */
+  text-decoration: none; /* Normal durumda altı çiziyi kaldırın */
+}
+.footer-item-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-item:hover {
+  text-decoration: underline; /* Hover durumunda altını çiz */
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: flex-start; /* Sosyal medya ikonlarını en sola daya */
+  margin: 20px;
+  padding-left: 10px;
+  flex-direction: row; /* Yatay olarak hizala */
+}
+
+.social-media-icons a {
+  margin-right: 10px; /* İkonlar arasında bir boşluk bırakmak için */
+}
+
+.social-media-icons img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in-out;
+  filter: brightness(0) invert(1); /* Beyaz renge çevirme */
+}
+
+.social-media-icons img:hover {
+  opacity: 0.8;
+}
+
+.service-code {
+  width: 100px;
+  height: 30px;
+  font-size: 13px;
+  padding: 0.5em;
+  margin-left: 20px;
+  background: transparent;
+  margin-top: -40px;
+  border: 1px solid grey;
+  color: grey;
+}
+
+.copyright {
+  font-size: 11px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-top: 5px;
+  color: grey;
 }
 

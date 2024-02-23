@@ -13,10 +13,7 @@ body {
 
 .fixed-header, .fixed-footer {
   width: 100%;
-  position: fixed;
-  background: #000000;
   padding: 10px;
-  font-size: 20px;
   font-family: 'Arial', sans-serif;
   font-style: normal;
   color: red;
@@ -24,10 +21,16 @@ body {
 
 .fixed-footer {
   bottom: 0;
+  font-size: 5px;
+  background: #141414 ;
+
 }
 
 .fixed-header {
   top: 0;
+  position: fixed;
+  font-size: 20px;
+  background: #000000;
 }
 
 .logo {
