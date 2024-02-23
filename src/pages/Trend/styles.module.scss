@@ -28,10 +28,9 @@
   border: 1px solid #ddd;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  position: relative; /* Konumlandırmayı göreceli olarak değiştir */
 
   &:hover {
-    transform: translateY(-5px); /* Kartı fareyle üzerine gelindiğinde hafifçe yukarı taşıyın */
+    /*   transform: translateY(-5px); Kartı fareyle üzerine gelindiğinde hafifçe yukarı taşıyın */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Fareyle üzerine gelindiğinde daha güçlü bir kutu gölgesi ekle */
     background-color: #333;
   }
