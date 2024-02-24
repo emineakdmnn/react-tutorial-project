@@ -48,7 +48,7 @@ const TrendMovie= () => {
                         className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
                         onMouseEnter={() => handleMouseEnter(movie.id)}
                         onMouseLeave={handleMouseLeave}>
-                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.name} />
                         <div className={styles['movie-info']}>
                             <h3>{movie.title}</h3>
                         </div>

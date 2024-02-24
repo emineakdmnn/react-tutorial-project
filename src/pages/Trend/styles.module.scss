@@ -21,16 +21,17 @@
 .trend-card {
   flex: 0 0 auto;
   width: 200px;
-  height: 300px; /* Başlangıç yüksekliği */
+  height: 300px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border: 3px solid white;
   border-radius: 5px;
-  transition: height 0.3s, width 0.3s, border-color 0.3s, margin 0.3s; /* Yükseklik, genişlik, kenarlık rengi ve kenar boşluğu değişikliği için geçiş */
+  margin-right: 10px;
+  transition: margin-right 0.3s, height 0.3s, width 0.3s, border-color 0.3s; /* Kayma, yükseklik, genişlik, kenarlık rengi değişikliği için geçiş */
 
   img {
-    width: 100%; /* Görüntü için tam genişlik */
+    width: 100%;
     height: auto;
     transition: transform 0.3s;
   }
@@ -50,8 +51,8 @@
   &:hover,
   &.hovered-card {
     border-color: darkred;
-    height: 400px; /* Fareyle üzerine gelindiğinde büyütülmüş yükseklik */
-    width: 400px; /* Fareyle üzerine gelindiğinde genişletilmiş genişlik */
+    width: 400px;
+    margin-right: 0;
 
     .movie-info {
       opacity: 1;
