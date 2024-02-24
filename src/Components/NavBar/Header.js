@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { HeaderItem } from "./Movie/HeaderItem";
 import PropTypes from "prop-types";
 import logo from "../../images/movie.png";
@@ -12,11 +12,40 @@ function Header(props) {
         { title: "Popular People", path: "/popular-person" },
     ];
 
+    const [isSearchVisible, setSearchVisible] = useState(false);
+    const searchContainerRef = useRef(null);
+
+    useEffect(() => {
+        const handleGlobalClick = (event) => {
+            if (
+                searchContainerRef.current &&
+                !searchContainerRef.current.contains(event.target) &&
+                event.target.className !== styles.search
+            ) {
+                setSearchVisible(false);
+            }
+        };
+
+        document.addEventListener("click", handleGlobalClick);
+
+        return () => {
+            document.removeEventListener("click", handleGlobalClick);
+        };
+    }, []);
+
+    const handleSearchClick = () => {
+        setSearchVisible(!isSearchVisible);
+    };
+
+    const handleCloseClick = () => {
+        setSearchVisible(false);
+    };
+
     return (
         <div className={styles.header}>
-            <header className={styles.headerContent}>
-                <img src={logo} alt="Logo" className={styles.logo}/>
-                <nav className={styles.nav}>
+            <header className={styles["headerContent"]}>
+                <img src={logo} alt="Logo" className={styles["logo"]} />
+                <nav className={styles["nav"]}>
                     {menuItems.map((menuItem, index) => (
                         <HeaderItem
                             key={menuItem.title}
@@ -26,7 +55,25 @@ function Header(props) {
                         />
                     ))}
                 </nav>
-                <img src={search} alt="Logo" className={styles.search}/>
+                <div className={styles["searchContainer"]} ref={searchContainerRef}>
+                    {isSearchVisible && (
+                        <>
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                className={styles["searchInput"]}
+                            />
+                        </>
+                    )}
+                    {!isSearchVisible && (
+                        <img
+                            src={search}
+                            alt="Search"
+                            className={styles["search"]}
+                            onClick={handleSearchClick}
+                        />
+                    )}
+                </div>
             </header>
         </div>
     );
