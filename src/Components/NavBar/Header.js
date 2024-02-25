@@ -42,7 +42,7 @@ function Header(props) {
     };
 
     return (
-        <div className={styles.header}>
+        <div className={styles["header"]}>
             <header className={styles["headerContent"]}>
                 <img src={logo} alt="Logo" className={styles["logo"]} />
                 <nav className={styles["nav"]}>
