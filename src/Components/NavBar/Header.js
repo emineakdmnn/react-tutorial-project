@@ -1,4 +1,6 @@
+// Header.js
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { HeaderItem } from "./Movie/HeaderItem";
 import PropTypes from "prop-types";
 import logo from "../../images/movie.png";
@@ -44,7 +46,11 @@ function Header(props) {
     return (
         <div className={styles["header"]}>
             <header className={styles["headerContent"]}>
-                <img src={logo} alt="Logo" className={styles["logo"]} />
+                <Link to="/" className={styles["logoLink"]}>
+                    <div className={styles["logoContainer"]}>
+                        <img src={logo} alt="Logo" className={styles["logo"]} />
+                    </div>
+                </Link>
                 <nav className={styles["nav"]}>
                     {menuItems.map((menuItem, index) => (
                         <HeaderItem
