@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Global from "../../../helpers/Global";
-import styles from '../../../pages/styles/styles.module.scss';
+import styles from './styles.module.scss';
 import VideoPlayer from '../../../pages/Video';
 
 function MovieDetailsCard(props) {
@@ -20,12 +20,8 @@ function MovieDetailsCard(props) {
         setVideoUrl(props?.videoUrl ?? null);
     }, [props]);
 
-    const handlePlayVideo = () => {
-        setShowVideo(true);
-    };
-
-    const handleCloseVideo = () => {
-        setShowVideo(false);
+    const handleToggleVideo = () => {
+        setShowVideo(!showVideo);
     };
 
     return (
@@ -33,17 +29,18 @@ function MovieDetailsCard(props) {
             <img
                 src={Global.tmdbImageBaseUrlw500 + posterUrl}
                 alt={title}
-                className={styles['img']}
+                className={styles['image-container']}
             />
             <div className={styles['title-label']}>{title}</div>
             <div className={styles['title-label']}>{overView}</div>
-            <button className={`${styles['play-button']} ${styles['custom-button']}`} onClick={handlePlayVideo}>
-                <span> Play Video</span>
+
+            <button className={`${styles['play-button']} ${styles['custom-button']}`} onClick={handleToggleVideo}>
+                <span>{showVideo ? 'Close Video' : 'Play Video'}</span>
             </button>
 
             {showVideo && (
                 <div className={styles['video-overlay']}>
-                    <VideoPlayer videoUrl={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"} onClose={handleCloseVideo} />
+                    <VideoPlayer videoUrl={videoUrl} onClose={handleToggleVideo} />
                 </div>
             )}
         </div>
@@ -56,6 +53,6 @@ MovieDetailsCard.propTypes = {
     title: PropTypes.string.isRequired,
     overView: PropTypes.string.isRequired,
     videoUrl: PropTypes.string.isRequired,
-};
+}
 
 export default MovieDetailsCard;

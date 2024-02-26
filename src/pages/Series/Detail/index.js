@@ -40,7 +40,7 @@ const SeriesDetail= () => {
             {!loading && seriesDetail && seriesDetail.id && (
                 <MovieDetailsCard
                     id={seriesDetail.id}
-                    posterUrl={seriesDetail.backdrop_path}
+                    posterUrl={seriesDetail.poster_path}
                     title={seriesDetail.name}
                     overView={seriesDetail.overview}
                 />

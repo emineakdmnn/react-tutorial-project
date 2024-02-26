@@ -41,7 +41,7 @@ const MovieDetails= () => {
             {!loading && movieDetail && movieDetail.id && (
                 <MovieDetailsCard
                     id={movieDetail.id}
-                    posterUrl={movieDetail.backdrop_path}
+                    posterUrl={movieDetail.poster_path}
                     title={movieDetail.title}
                     overView={movieDetail.overview}
                     videoUrl={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
