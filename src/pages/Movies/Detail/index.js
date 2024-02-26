@@ -4,7 +4,7 @@ import Service from "../../../services/Service";
 import Header from "../../../Components/NavBar/Header";
 import {Loading} from "../../../Components/Loading";
 import Error from "../../../Components/Error";
-import MovieDetailsCard from "../../../Components/Cards/MovieDetailsCard";
+import MovieDetailsCard from "../../../Components/Cards/DetailsCard";
 
 
 const MovieDetails= () => {

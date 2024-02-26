@@ -1,4 +1,3 @@
-// Header.js
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { HeaderItem } from "./Movie/HeaderItem";
@@ -10,8 +9,7 @@ import styles from "./style.module.scss";
 function Header(props) {
     const menuItems = [
         { title: "Movies", path: "/movies" },
-        { title: "Series", path: "/series" },
-        { title: "Popular People", path: "/popular-person" },
+        { title: "Series", path: "/series" }
     ];
 
     const [isSearchVisible, setSearchVisible] = useState(false);

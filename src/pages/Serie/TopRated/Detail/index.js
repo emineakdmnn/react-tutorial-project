@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import {Loading} from '../../../../Components/Loading';
 import Error from '../../../../Components/Error';
 import Service from "../../../../services/Service";
-import MovieDetailsCard from "../../../../Components/Cards/MovieDetailsCard";
+import MovieDetailsCard from "../../../../Components/Cards/DetailsCard";
 import Header from "../../../../Components/NavBar/Series/Header";
 
 const TopRatedSeriesDetail = () => {

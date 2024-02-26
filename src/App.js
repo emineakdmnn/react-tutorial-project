@@ -32,17 +32,6 @@ function App() {
                 <Route path="/series" element={<Series/>}/>
                 <Route path="/series-details-id/:id" element={<SeriesDetail/>}/>
 
-
-                <Route path="/airing-today-series-id/:id" element={<AiringTodaySeriesDetail/>}/>
-                <Route path="/on-the-air-series" element={<OnTheAir/>}/>
-                <Route path="/on-the-air-series-id/:id" element={<OnTheAirSeriesDetail/>}/>
-                <Route path="/popular-series" element={<PopularSeries/>}/>
-                <Route path="/popular-series-id/:id" element={<PopularSeriesDetail/>}/>
-                <Route path="/top-rated-series" element={<TopRatedSeries/>}/>
-
-                <Route path="/top-rated-series-id/:id" element={<TopRatedSeriesDetail/>}/>
-
-                <Route path="/popular-person" element={<PopularPerson/>}/>
             </Routes>
         </Router>
     );
