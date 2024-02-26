@@ -19,7 +19,6 @@ class Service {
         const baseUrl = this.baseUrls[type] || this.baseUrls.movie || this.baseUrls.series || this.baseUrls.person || this.baseUrls.trending ;
 
 
-
         return axios.get(`${baseUrl}/${endpoint}?api_key=${this.apiKey}`)
             .then(response => response.data)
             .catch(error => {
@@ -30,6 +29,10 @@ class Service {
 
     fetchMovieDetails(movieId) {
         return this.fetchData(movieId, 'movie');
+    }
+
+    fetchNowPlayingMovies() {
+        return this.fetchData('now_playing', 'movie');
     }
 
     fetchPopularMovies() {

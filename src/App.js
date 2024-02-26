@@ -7,30 +7,33 @@ import UpComing from "./pages/Movie/UpComing";
 import PopularMovieDetail from "./pages/Movie/Popular/Detail";
 import TopRatedDetails from "./pages/Movie/TopRated/Detail";
 import UpComingDetail from "./pages/Movie/UpComing/Detail";
-import AiringToday from "./pages/Series/AiringToday";
-import OnTheAir from "./pages/Series/OnTheAir";
-import PopularSeries from "./pages/Series/Popular";
-import TopRatedSeries from "./pages/Series/TopRated";
-import AiringTodaySeriesDetail from "./pages/Series/AiringToday/Detail";
-import OnTheAirSeriesDetail from "./pages/Series/OnTheAir/Detail";
-import PopularSeriesDetail from "./pages/Series/Popular/Detail";
-import TopRatedSeriesDetail from "./pages/Series/TopRated/Detail";
+import AiringToday from "./pages/Serie/AiringToday";
+import OnTheAir from "./pages/Serie/OnTheAir";
+import PopularSeries from "./pages/Serie/Popular";
+import TopRatedSeries from "./pages/Serie/TopRated";
+import AiringTodaySeriesDetail from "./pages/Serie/AiringToday/Detail";
+import OnTheAirSeriesDetail from "./pages/Serie/OnTheAir/Detail";
+import PopularSeriesDetail from "./pages/Serie/Popular/Detail";
+import TopRatedSeriesDetail from "./pages/Serie/TopRated/Detail";
 import PopularPerson from "./pages/PopularPerson";
+import {MdOfflineBolt} from "react-icons/md";
+import Movie from "./Components/Container/Movie";
+import Series from "./Components/Container/Series";
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/movies" element={<Popular/>}/>
-                <Route path="/popular-movies" element={<Popular/>}/>
+                <Route path="/movies" element={<Movie/>}/>
+
                 <Route path="/popular-movie-id/:id" element={<PopularMovieDetail/>}/>
                 <Route path="/top-rated-movies" element={<TopRated/>}/>
                 <Route path="/top-rated-movie-id" element={<TopRatedDetails/>}/>
                 <Route path="/up-coming-movies" element={<UpComing/>}/>
                 <Route path="/up-coming-movie-id/:id" element={<UpComingDetail/>}/>
-                <Route path="/series" element={<AiringToday/>}/>
-                <Route path="/airing-today-series" element={<AiringToday/>}/>
+
+                <Route path="/series" element={<Series/>}/>
                 <Route path="/airing-today-series-id/:id" element={<AiringTodaySeriesDetail/>}/>
                 <Route path="/on-the-air-series" element={<OnTheAir/>}/>
                 <Route path="/on-the-air-series-id/:id" element={<OnTheAirSeriesDetail/>}/>
@@ -38,6 +41,7 @@ function App() {
                 <Route path="/popular-series-id/:id" element={<PopularSeriesDetail/>}/>
                 <Route path="/top-rated-series" element={<TopRatedSeries/>}/>
                 <Route path="/top-rated-series-id/:id" element={<TopRatedSeriesDetail/>}/>
+                
                 <Route path="/popular-person" element={<PopularPerson/>}/>
             </Routes>
         </Router>

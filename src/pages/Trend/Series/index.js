@@ -40,7 +40,7 @@ const TrendSeries = () => {
 
     return (
         <div>
-            <h2 className={styles['trend-header']}>Trend Diziler</h2>
+            <h2 className={styles['trend-header']}>Trend Series</h2>
             <div className={styles['trend-container']}>
                 {trendSeries.map((movie) => (
                     <div

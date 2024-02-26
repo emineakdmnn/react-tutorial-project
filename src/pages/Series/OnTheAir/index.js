@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Service from "../../../services/Service";
-import Header from "../../../Components/NavBar/Series/Header";
-import styles from "../../../Components/Container/Series/style.module.scss";
-import {Loading} from "../../../Components/Loading";
-import Index from "../../../Components/Error";
-import {Link} from "react-router-dom";
-import MovieCard from "../../../Components/Cards/MovieCard";
+import styles from "../styles.module.scss";
 
-const OnTheAir = () => {
+const OnTheAirSeries= () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
     const [onTheAirSeries, setOnTheAirSeries] = useState([]);
-    const seriesService = new Service();
+    const [hoveredCard, setHoveredCard] = useState(null);
+    const onTheAirSeriesService = new Service();
 
     const contentLoad = () => {
         setLoading(true);
-        seriesService.fetchOnTheAirSeries().then(
+        onTheAirSeriesService.fetchOnTheAirSeries().then(
             (response) => {
                 setOnTheAirSeries(response.results);
                 setErrorResponse(null);
@@ -33,26 +29,37 @@ const OnTheAir = () => {
         contentLoad();
     }, []);
 
+    const handleMouseEnter = (movieId) => {
+        setHoveredCard(movieId);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredCard(null);
+    };
+
     return (
         <div>
-            <Header headerTitle={'ON THE AIR SERIES'}/>
-            <ul className={styles['movie-list']}>
-                {loading && <Loading/>}
-                {errorResponse && <Index mainTitle={errorResponse.status}/>}
-                {!loading &&
-                    onTheAirSeries?.map((series, index) => (
-                        <Link key={'on-the-air-series' + index} to={`/on-the-air-series-id/${series.id}`}>
-                            <MovieCard
-                                id={series.id}
-                                posterUrl={series.poster_path}
-                                title={series.name}
-                            />
-                        </Link>
-                    ))}
-            </ul>
+            <h2 className={styles['trend-header']}>On The Air Series</h2>
+            <div className={styles['trend-container']}>
+                {onTheAirSeries.map((movie) => (
+                    <div
+                        key={movie.id}
+                        className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
+                        onMouseEnter={() => handleMouseEnter(movie.id)}
+                        onMouseLeave={handleMouseLeave}>
+                        <img
+                            src={`https://image.tmdb.org/t/p/w200${hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}`}
+                            alt={movie.name}
+                        />
+                        <div className={styles['movie-info']}>
+                            <h3>{movie.name}</h3>
+
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 
 }
-
-export default OnTheAir
+export default OnTheAirSeries;

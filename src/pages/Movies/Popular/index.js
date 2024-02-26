@@ -2,23 +2,24 @@ import React, {useEffect, useState} from 'react';
 import Service from "../../../services/Service";
 import styles from "../styles.module.scss";
 
-const TopRatedSeries= () => {
+const PopularMovie = () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
-    const [topRatedSeries, setTopRatedSeries] = useState([]);
+    const [popularMovies, setPopularMovies] = useState([]);
     const [hoveredCard, setHoveredCard] = useState(null);
-    const topRatedSeriesService = new Service();
+    const popularMovieService = new Service();
+
 
     const contentLoad = () => {
         setLoading(true);
-        topRatedSeriesService.fetchAiringTodaySeries().then(
+        popularMovieService.fetchPopularMovies().then(
             (response) => {
-                setTopRatedSeries(response.results);
+                setPopularMovies(response.results);
                 setErrorResponse(null);
                 setLoading(false);
             },
             (error) => {
-                setTopRatedSeries([]);
+                setPopularMovies([]);
                 setErrorResponse(error);
                 setLoading(false);
             }
@@ -39,9 +40,9 @@ const TopRatedSeries= () => {
 
     return (
         <div>
-            <h2 className={styles['trend-header']}>Top Rated Series</h2>
+            <h2 className={styles['trend-header']}>Popular Movies</h2>
             <div className={styles['trend-container']}>
-                {topRatedSeries.map((movie) => (
+                {popularMovies.map((movie) => (
                     <div
                         key={movie.id}
                         className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
@@ -49,17 +50,17 @@ const TopRatedSeries= () => {
                         onMouseLeave={handleMouseLeave}>
                         <img
                             src={`https://image.tmdb.org/t/p/w200${hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}`}
-                            alt={movie.name}
+                            alt={movie.title}
                         />
                         <div className={styles['movie-info']}>
-                            <h3>{movie.name}</h3>
+                            <h3>{movie.title}</h3>
 
                         </div>
                     </div>
-                ))}
+))}
             </div>
         </div>
     );
-
 }
-export default TopRatedSeries;
+
+export default PopularMovie;

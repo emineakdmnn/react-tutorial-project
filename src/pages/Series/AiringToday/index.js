@@ -1,92 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import {Link} from "react-router-dom";
-import styles from '../../../Components/Container/Series/style.module.scss';
-import Service from '../../../services/Service';
-import { Loading } from '../../../Components/Loading';
-import MovieCard from '../../../Components/Cards/MovieCard';
-import Index from '../../../Components/Error';
-import Header from "../../../Components/NavBar/Series/Header";
+import React, {useEffect, useState} from 'react';
+import Service from "../../../services/Service";
+import styles from "../styles.module.scss";
 
-const AiringToday = () => {
+const AiringTodaySeries= () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
-    const [searchTerm, setSearchTerm] = useState('');
     const [airingTodaySeries, setAiringTodaySeries] = useState([]);
-    const seriesService = new Service();
+    const [hoveredCard, setHoveredCard] = useState(null);
+    const airingTodaySeriesService = new Service();
 
-    const contentLoad = (searchTerm = '') => {
+    const contentLoad = () => {
         setLoading(true);
-        if (searchTerm) {
-            seriesService.fetchSearchSeries(searchTerm).then(
-                (response) => {
-                    setAiringTodaySeries(response.results);
-                    setErrorResponse(null);
-                    setLoading(false);
-                },
-                (error) => {
-                    setAiringTodaySeries([]);
-                    setErrorResponse(error);
-                    setLoading(false);
-                }
-            );
-        } else {
-            seriesService.fetchAiringTodaySeries().then(
-                (response) => {
-                    setAiringTodaySeries(response.results);
-                    setErrorResponse(null);
-                    setLoading(false);
-                },
-                (error) => {
-                    setAiringTodaySeries([]);
-                    setErrorResponse(error);
-                    setLoading(false);
-                }
-            );
-        }
+        airingTodaySeriesService.fetchAiringTodaySeries().then(
+            (response) => {
+                setAiringTodaySeries(response.results);
+                setErrorResponse(null);
+                setLoading(false);
+            },
+            (error) => {
+                setAiringTodaySeries([]);
+                setErrorResponse(error);
+                setLoading(false);
+            }
+        );
     };
 
     useEffect(() => {
         contentLoad();
     }, []);
 
-    const handleInputChange = (e) => {
-        const inputValue = e.target.value;
-        setSearchTerm(inputValue);
+    const handleMouseEnter = (movieId) => {
+        setHoveredCard(movieId);
+    };
 
-        if (inputValue.length >= 3) {
-            contentLoad(inputValue);
-        } else if (inputValue.length === 0) {
-            contentLoad();
-        }
+    const handleMouseLeave = () => {
+        setHoveredCard(null);
     };
 
     return (
         <div>
-            <Header headerTitle={'AIRING TODAY SERIES'}/>
-            <div className={styles['search-container']}>
-                <input
-                    type="text"
-                    placeholder="Search series..."
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                />
+            <h2 className={styles['trend-header']}>Airing Today Series</h2>
+            <div className={styles['trend-container']}>
+                {airingTodaySeries.map((movie) => (
+                    <div
+                        key={movie.id}
+                        className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
+                        onMouseEnter={() => handleMouseEnter(movie.id)}
+                        onMouseLeave={handleMouseLeave}>
+                        <img
+                            src={`https://image.tmdb.org/t/p/w200${hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}`}
+                            alt={movie.name}
+                        />
+                        <div className={styles['movie-info']}>
+                            <h3>{movie.name}</h3>
+
+                        </div>
+                    </div>
+                ))}
             </div>
-            <ul className={styles['movie-list']}>
-                {loading && <Loading/>}
-                {errorResponse && <Index mainTitle={errorResponse.status}/>}
-                {!loading &&
-                    airingTodaySeries?.map((series, index) => (
-                        <Link key={'airing-today-series' + index} to={`/airing-today-series-id/${series.id}`}>
-                            <MovieCard
-                                id={series.id}
-                                posterUrl={series.poster_path}
-                                title={series.name}
-                            />
-                        </Link>
-                    ))}
-            </ul>
         </div>
     );
-}
 
-export default AiringToday
+}
+export default AiringTodaySeries;

@@ -1,31 +1,43 @@
-$borderColor: darkred;
-$backgroundColor: #333;
-
 body {
-  margin: 0;
   padding-top: 80px;
   padding-bottom: 40px;
+  background-color: #141414;
 }
 
 .container {
   width: 80%;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .fixed-header, .fixed-footer {
   width: 100%;
-  position: fixed;
-  background: $backgroundColor;
-  padding: 10px 0;
-  color: #fff;
-}
-
-.fixed-header {
-  top: 0;
+  padding: 10px;
+  font-family: 'Arial', sans-serif;
+  font-style: normal;
+  color: red;
+  z-index: 1;
+  background: #141414;
 }
 
 .fixed-footer {
   bottom: 0;
+  font-size: 5px;
+}
+
+.fixed-header {
+  top: 0;
+  position: fixed;
+  font-size: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 40px;
+  margin-right: 10px; // Logo ile içerik arasına boşluk eklemek için
 }
 
 .content-text {
@@ -45,9 +57,6 @@ body {
   margin: 10px;
   width: 200px;
   text-align: center;
-  border: 1px solid black;
-  min-height: 390px;
-  max-height: 420px;
 }
 
 .movie-poster {
@@ -76,20 +85,4 @@ body {
 
 .movie-detail-value {
   margin-bottom: 10px;
-}
-
-.search-container {
-  margin-top: 30px;
-  margin-left: 10px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-
-  input {
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
 }

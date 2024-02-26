@@ -2,23 +2,24 @@ import React, {useEffect, useState} from 'react';
 import Service from "../../../services/Service";
 import styles from "../styles.module.scss";
 
-const TopRatedSeries= () => {
+
+const NowPlayingMovie= () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
-    const [topRatedSeries, setTopRatedSeries] = useState([]);
+    const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [hoveredCard, setHoveredCard] = useState(null);
-    const topRatedSeriesService = new Service();
+    const nowPlayingMovieService = new Service();
 
     const contentLoad = () => {
         setLoading(true);
-        topRatedSeriesService.fetchAiringTodaySeries().then(
+        nowPlayingMovieService.fetchNowPlayingMovies().then(
             (response) => {
-                setTopRatedSeries(response.results);
+                setNowPlayingMovies(response.results);
                 setErrorResponse(null);
                 setLoading(false);
             },
             (error) => {
-                setTopRatedSeries([]);
+                setNowPlayingMovies([]);
                 setErrorResponse(error);
                 setLoading(false);
             }
@@ -39,9 +40,9 @@ const TopRatedSeries= () => {
 
     return (
         <div>
-            <h2 className={styles['trend-header']}>Top Rated Series</h2>
+            <h2 className={styles['trend-header']}>Now Playing Movies</h2>
             <div className={styles['trend-container']}>
-                {topRatedSeries.map((movie) => (
+                {nowPlayingMovies.map((movie) => (
                     <div
                         key={movie.id}
                         className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
@@ -49,10 +50,10 @@ const TopRatedSeries= () => {
                         onMouseLeave={handleMouseLeave}>
                         <img
                             src={`https://image.tmdb.org/t/p/w200${hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}`}
-                            alt={movie.name}
+                            alt={movie.title}
                         />
                         <div className={styles['movie-info']}>
-                            <h3>{movie.name}</h3>
+                            <h3>{movie.title}</h3>
 
                         </div>
                     </div>
@@ -62,4 +63,5 @@ const TopRatedSeries= () => {
     );
 
 }
-export default TopRatedSeries;
+
+export default NowPlayingMovie;
