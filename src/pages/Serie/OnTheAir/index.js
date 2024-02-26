@@ -5,7 +5,7 @@ import styles from "../../../Components/Container/Series/style.module.scss";
 import {Loading} from "../../../Components/Loading";
 import Index from "../../../Components/Error";
 import {Link} from "react-router-dom";
-import MovieCard from "../../../Components/Cards/MovieCard";
+import MovieCard from "../../../Components/Cards/Card";
 
 const OnTheAir = () => {
     const [loading, setLoading] = useState(true);

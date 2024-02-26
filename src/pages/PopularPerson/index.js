@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../Components/Container/Movie/style.module.scss';
 import Service from '../../services/Service';
 import { Loading } from '../../Components/Loading';
-import MovieCard from '../../Components/Cards/MovieCard';
+import Card from '../../Components/Cards/Card';
 import Index from '../../Components/Error';
 import Header from "../../Components/NavBar/Header";
 import cn from "classnames";
@@ -41,10 +41,10 @@ const PopularPerson = () => {
                 {errorResponse && <Index mainTitle={errorResponse.status}/>}
                 {!loading &&
                     popularPerson?.map((movie, index) => (
-                        <MovieCard key={'popular-person' + index}
-                                   id={movie.id}
-                                   posterUrl={movie.profile_path}
-                                   title={movie.name}
+                        <Card key={'popular-person' + index}
+                              id={movie.id}
+                              posterUrl={movie.profile_path}
+                              title={movie.name}
                         />
 
                     ))}

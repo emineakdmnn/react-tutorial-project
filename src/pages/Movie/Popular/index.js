@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from '../../../Components/Container/Movie/style.module.scss';
 import Service from '../../../services/Service';
 import { Loading } from '../../../Components/Loading';
-import MovieCard from '../../../Components/Cards/MovieCard';
+import Card from '../../../Components/Cards/Card';
 import Index from '../../../Components/Error';
 import Header from '../../../Components/NavBar/Movie/Header';
 
@@ -77,7 +77,7 @@ const Popular = () => {
                 {!loading &&
                     popularMovies?.map((movie, index) => (
                         <Link key={'popular-movies' + index} to={`/popular-movie-id/${movie.id}`}>
-                            <MovieCard
+                            <Card
                                 id={movie.id}
                                 posterUrl={movie.poster_path}
                                 title={movie.title}

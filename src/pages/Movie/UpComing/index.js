@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../../Components/Container/Movie/style.module.scss";
 import Service from "../../../services/Service";
-import MovieCard from "../../../Components/Cards/MovieCard";
+import Card from "../../../Components/Cards/Card";
 import {Loading} from "../../../Components/Loading";
 import Index from "../../../Components/Error";
 import {Link} from "react-router-dom";
@@ -38,7 +38,7 @@ const UpComing = () => {
                 {!loading &&
                     upComingMovies?.map((movie, index) => (
                         <Link key={'up-coming-movies' + index} to={`/up-coming-movie-id/${movie.id}`}>
-                            <MovieCard
+                            <Card
                                 id={movie.id}
                                 posterUrl={movie.poster_path}
                                 title={movie.title}

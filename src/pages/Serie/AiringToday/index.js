@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import styles from '../../../Components/Container/Series/style.module.scss';
 import Service from '../../../services/Service';
 import { Loading } from '../../../Components/Loading';
-import MovieCard from '../../../Components/Cards/MovieCard';
+import Card from '../../../Components/Cards/Card';
 import Index from '../../../Components/Error';
 import Header from "../../../Components/NavBar/Series/Header";
 
@@ -77,7 +77,7 @@ const AiringToday = () => {
                 {!loading &&
                     airingTodaySeries?.map((series, index) => (
                         <Link key={'airing-today-series' + index} to={`/airing-today-series-id/${series.id}`}>
-                            <MovieCard
+                            <Card
                                 id={series.id}
                                 posterUrl={series.poster_path}
                                 title={series.name}

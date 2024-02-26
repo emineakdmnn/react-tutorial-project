@@ -5,7 +5,7 @@ import styles from "../../../Components/Container/Series/style.module.scss";
 import {Loading} from "../../../Components/Loading";
 import Index from "../../../Components/Error";
 import {Link} from "react-router-dom";
-import MovieCard from "../../../Components/Cards/MovieCard";
+import Card from "../../../Components/Cards/Card";
 
 const Popular = () => {
     const [loading, setLoading] = useState(true);
@@ -42,7 +42,7 @@ const Popular = () => {
                 {!loading &&
                     popularSeries?.map((series, index) => (
                         <Link key={'popular-series' + index} to={`/popular-series-id/${series.id}`}>
-                            <MovieCard
+                            <Card
                                 id={series.id}
                                 posterUrl={series.poster_path}
                                 title={series.name}
