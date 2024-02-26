@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Service from "../../../services/Service";
 import styles from "../styles.module.scss";
+import {Link} from "react-router-dom";
 
 const TopRatedMovie= () => {
     const [loading, setLoading] = useState(true);
@@ -41,21 +42,23 @@ const TopRatedMovie= () => {
         <div>
             <h2 className={styles['trend-header']}>Top Rated Movies</h2>
             <div className={styles['trend-container']}>
-                {topRatedMovies.map((movie) => (
-                    <div
-                        key={movie.id}
-                        className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
-                        onMouseEnter={() => handleMouseEnter(movie.id)}
-                        onMouseLeave={handleMouseLeave}>
-                        <img
-                            src={`https://image.tmdb.org/t/p/w200${hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}`}
-                            alt={movie.title}
-                        />
-                        <div className={styles['movie-info']}>
-                            <h3>{movie.title}</h3>
+                {topRatedMovies.map((movie, index) => (
+                    <Link key={'movies-details' + index} to={`/movie-details-id/${movie.id}`}>
+                        <div
+                            key={movie.id}
+                            className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
+                            onMouseEnter={() => handleMouseEnter(movie.id)}
+                            onMouseLeave={handleMouseLeave}>
+                            <img
+                                src={`https://image.tmdb.org/t/p/w200${hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}`}
+                                alt={movie.title}
+                            />
+                            <div className={styles['movie-info']}>
+                                <h3>{movie.title}</h3>
 
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

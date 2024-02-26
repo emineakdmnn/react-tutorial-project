@@ -19,6 +19,7 @@ import PopularPerson from "./pages/PopularPerson";
 import {MdOfflineBolt} from "react-icons/md";
 import Movie from "./Components/Container/Movie";
 import Series from "./Components/Container/Series";
+import MovieDetails from "./pages/Movies/Detail";
 
 function App() {
     return (
@@ -26,22 +27,18 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/movies" element={<Movie/>}/>
-
-                <Route path="/popular-movie-id/:id" element={<PopularMovieDetail/>}/>
-                <Route path="/top-rated-movies" element={<TopRated/>}/>
-                <Route path="/top-rated-movie-id" element={<TopRatedDetails/>}/>
-                <Route path="/up-coming-movies" element={<UpComing/>}/>
-                <Route path="/up-coming-movie-id/:id" element={<UpComingDetail/>}/>
-
+                <Route path="/movie-details-id/:id" element={<MovieDetails/>}/>
                 <Route path="/series" element={<Series/>}/>
+
                 <Route path="/airing-today-series-id/:id" element={<AiringTodaySeriesDetail/>}/>
                 <Route path="/on-the-air-series" element={<OnTheAir/>}/>
                 <Route path="/on-the-air-series-id/:id" element={<OnTheAirSeriesDetail/>}/>
                 <Route path="/popular-series" element={<PopularSeries/>}/>
                 <Route path="/popular-series-id/:id" element={<PopularSeriesDetail/>}/>
                 <Route path="/top-rated-series" element={<TopRatedSeries/>}/>
+
                 <Route path="/top-rated-series-id/:id" element={<TopRatedSeriesDetail/>}/>
-                
+
                 <Route path="/popular-person" element={<PopularPerson/>}/>
             </Routes>
         </Router>

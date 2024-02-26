@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Service from "../../../services/Service";
 import styles from "../styles.module.scss";
+import {Link} from "react-router-dom";
 
 
-const NowPlayingMovie= () => {
+const NowPlayingMovies= () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
@@ -42,7 +43,8 @@ const NowPlayingMovie= () => {
         <div>
             <h2 className={styles['trend-header']}>Now Playing Movies</h2>
             <div className={styles['trend-container']}>
-                {nowPlayingMovies.map((movie) => (
+                {nowPlayingMovies.map((movie,index) => (
+                    <Link key={'movies-details' + index} to={`/movie-details-id/${movie.id}`}>
                     <div
                         key={movie.id}
                         className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
@@ -57,6 +59,7 @@ const NowPlayingMovie= () => {
 
                         </div>
                     </div>
+                    </Link>
                 ))}
             </div>
         </div>
@@ -64,4 +67,4 @@ const NowPlayingMovie= () => {
 
 }
 
-export default NowPlayingMovie;
+export default NowPlayingMovies;
