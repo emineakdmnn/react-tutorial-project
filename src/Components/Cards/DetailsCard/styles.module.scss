@@ -6,9 +6,8 @@
   border-radius: 5px;
   margin: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #141414;
   transition: background-color 0.3s ease;
-
+  background: linear-gradient(to bottom, #141414, #000); /* Geçişli arka plan rengi */
 }
 
 .movie-details-card:hover {
@@ -22,6 +21,7 @@
   border-radius: 5px;
   margin-bottom: 20px;
   align-self: center;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Beyaz gölge efekti */
 }
 
 .title-label {
@@ -29,6 +29,8 @@
   margin-bottom: 10px;
   color: #ffffff;
   text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .play-button {
@@ -46,8 +48,14 @@
 
 .play-button:hover {
   background-color: darkred;
+  transition: transform 0.3s ease-in-out;  /* Hover durumunda butonun boyutunu büyütme */
 }
 
 .video-overlay {
   margin-top: 20px;
 }
+
+.play-button:hover {
+  transform: scale(1.1); /* Hover durumunda butonun boyutunu büyütme */
+}
+

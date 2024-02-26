@@ -43,6 +43,7 @@ const SeriesDetail= () => {
                     posterUrl={seriesDetail.poster_path}
                     title={seriesDetail.name}
                     overView={seriesDetail.overview}
+                    videoUrl={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
                 />
             )}
         </div>

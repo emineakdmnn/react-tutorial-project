@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Service from "../../../services/Service";
-import Header from "../../../Components/NavBar/Header";
 import {Loading} from "../../../Components/Loading";
 import Error from "../../../Components/Error";
 import MovieDetailsCard from "../../../Components/Cards/DetailsCard";
