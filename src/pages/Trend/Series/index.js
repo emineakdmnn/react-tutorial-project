@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Service from '../../../services/Service';
 import styles from '../styles.module.scss';
 import 'swiper/swiper-bundle.css';
+import {Link} from "react-router-dom";
+import Card from "../../../Components/Cards/Card";
 
 const TrendSeries = () => {
     const [loading, setLoading] = useState(true);
@@ -42,20 +44,18 @@ const TrendSeries = () => {
         <div>
             <h2 className={styles['trend-header']}>Trend Series</h2>
             <div className={styles['trend-container']}>
-                {trendSeries.map((movie) => (
-                    <div
-                        key={movie.id}
-                        className={`${styles['trend-card']} ${hoveredCard === movie.id ? styles['hovered-card'] : ''}`}
-                        onMouseEnter={() => handleMouseEnter(movie.id)}
-                        onMouseLeave={handleMouseLeave}>
-                        <img
-                            src={`https://image.tmdb.org/t/p/w200${hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}`}
-                            alt={movie.name}
+                {trendSeries.map((series, index) => (
+                    <Link key={'series-detail' + index} to={`/series-details-id/${series.id}`}>
+                        <Card
+                            key={'series-details' + index}
+                            id={series.id}
+                            posterPath={hoveredCard === series.id ? series.backdrop_path : series.poster_path}
+                            title={series.name}
+                            backdropPath={hoveredCard === series.id ? series.poster_path : series.backdrop_path}
+                            onMouseEnter={() => handleMouseEnter(series.id)}
+                            onMouseLeave={handleMouseLeave}
                         />
-                        <div className={styles['movie-info']}>
-                            <h3>{movie.name}</h3>
-                        </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
