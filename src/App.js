@@ -20,6 +20,7 @@ import {MdOfflineBolt} from "react-icons/md";
 import Movie from "./Components/Container/Movie";
 import Series from "./Components/Container/Series";
 import MovieDetails from "./pages/Movies/Detail";
+import SeriesDetail from "./pages/Series/Detail";
 
 function App() {
     return (
@@ -29,6 +30,8 @@ function App() {
                 <Route path="/movies" element={<Movie/>}/>
                 <Route path="/movie-details-id/:id" element={<MovieDetails/>}/>
                 <Route path="/series" element={<Series/>}/>
+                <Route path="/series-details-id/:id" element={<SeriesDetail/>}/>
+
 
                 <Route path="/airing-today-series-id/:id" element={<AiringTodaySeriesDetail/>}/>
                 <Route path="/on-the-air-series" element={<OnTheAir/>}/>
