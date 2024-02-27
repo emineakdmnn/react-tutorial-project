@@ -1,19 +1,22 @@
 .trend-card {
-  flex: 0 0 auto;
-  width: 200px;
-  height: 300px;
-  overflow: hidden;
+  display: flex;
+  align-items: end;
+  width: 200px; /* Adjusted max-width */
+  height: 20rem; /* Adjusted max-height */
   position: relative;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 3px solid white;
-  border-radius: 5px;
-  margin-right: 10px;
-  transition: margin-right 0.3s, height 0.3s, width 0.3s, border-color 0.3s; /* Kayma, yükseklik, genişlik, kenarlık rengi değişikliği için geçiş */
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 1rem 2rem -.5rem #262626;
+  transition-property: box-shadow, transform, outline-color, filter;
+  transition-duration: 200ms;
+  outline: .2rem solid transparent;
 
   img {
     width: 100%;
-    height: auto;
-    transition: transform 0.3s;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .movie-info {
@@ -30,7 +33,7 @@
 
   &:hover,
   &.hovered-card {
-    border-color: darkred;
+    border: 5px solid darkred;
     width: 400px;
     margin-right: 0;
 
