@@ -1,31 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import VideoJS from '../../Components/Container/VideoJS';
-import styles from './style.module.scss';
+import { useParams } from 'react-router-dom';
+import VideoPlayer from '../../Components/VideoJs/player';
 
-function VideoPlayer({ videoUrl }) {
-    const videoJsOptions = {
-        autoplay: true,
-        controls: true,
-        responsive: true,
-        fluid: true,
-        sources: [
-            {
-                src: videoUrl,
-                type: 'video/mp4',
-            },
-        ],
-    };
+function VideoPlayerPage() {
+    const { id } = useParams();
+
+    const videoUrl = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
 
     return (
-        <div className={styles["videoContainer"]}>
-            <VideoJS options={videoJsOptions} />
+        <div>
+            <VideoPlayer videoUrl={videoUrl} />
         </div>
     );
 }
 
-VideoPlayer.propTypes = {
-    videoUrl: PropTypes.string.isRequired,
-};
-
-export default VideoPlayer;
+export default VideoPlayerPage;

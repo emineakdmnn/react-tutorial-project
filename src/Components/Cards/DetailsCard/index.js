@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Global from '../../../helpers/Global';
 import styles from './styles.module.scss';
-import VideoPlayer from "../../../pages/Video";
+import VideoPlayer from "../../VideoJs/player";
 
 function MovieDetailsCard(props) {
     const {
