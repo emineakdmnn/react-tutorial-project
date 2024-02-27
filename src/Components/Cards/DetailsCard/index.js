@@ -1,27 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Global from "../../../helpers/Global";
+import Global from '../../../helpers/Global';
 import styles from './styles.module.scss';
-import VideoPlayer from '../../../pages/Video';
+import VideoPlayer from "../../../pages/Video";
 
 function MovieDetailsCard(props) {
-    const [id, setId] = useState(props?.id ?? null);
-    const [title, setTitle] = useState(props?.title ?? null);
-    const [posterUrl, setPosterUrl] = useState(props?.posterUrl ?? null);
-    const [overView, setOverView] = useState(props?.overView ?? null);
-    const [videoUrl, setVideoUrl] = useState(props?.videoUrl ?? null);
-    const [showVideo, setShowVideo] = useState(false);
+    const {
+        id,
+        title,
+        posterUrl,
+        overView,
+        videoUrl: defaultVideoUrl,
+    } = props;
 
-    useEffect(() => {
-        setId(props?.id ?? null);
-        setTitle(props?.title ?? null);
-        setPosterUrl(props?.posterUrl ?? null);
-        setOverView(props?.overView ?? null);
-        setVideoUrl(props?.videoUrl ?? null);
-    }, [props]);
+    const [showVideo, setShowVideo] = React.useState(false);
+    const navigate = useNavigate();
 
     const handleToggleVideo = () => {
         setShowVideo(!showVideo);
+
+        if (!showVideo) {
+            navigate(`/video`);
+        }
     };
 
     return (
@@ -34,13 +35,16 @@ function MovieDetailsCard(props) {
             <div className={styles['title-label']}>{title}</div>
             <div className={styles['title-label']}>{overView}</div>
 
-            <button className={`${styles['play-button']} ${styles['custom-button']}`} onClick={handleToggleVideo}>
-                <span>{showVideo ? 'Close Video' : 'Play Video'}</span>
+            <button
+                className={`${styles['play-button']} ${styles['custom-button']}`}
+                onClick={handleToggleVideo}
+            >
+                <span>{showVideo ? 'Videoyu Kapat' : 'Videoyu Oynat'}</span>
             </button>
 
             {showVideo && (
                 <div className={styles['video-overlay']}>
-                    <VideoPlayer videoUrl={videoUrl} onClose={handleToggleVideo} />
+                    <VideoPlayer videoUrl={defaultVideoUrl} />
                 </div>
             )}
         </div>
@@ -53,6 +57,6 @@ MovieDetailsCard.propTypes = {
     title: PropTypes.string.isRequired,
     overView: PropTypes.string.isRequired,
     videoUrl: PropTypes.string.isRequired,
-}
+};
 
 export default MovieDetailsCard;

@@ -1,39 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import videojs from 'video.js';
-import 'video.js/dist/video-js.css';
-import VideoJS from "../../Components/Container/VideoJS";
+import VideoJS from '../../Components/Container/VideoJS';
+import styles from './style.module.scss';
 
-const VideoPlayer = (props) => {
-    const playerRef = React.useRef(null);
-
+function VideoPlayer({ videoUrl }) {
     const videoJsOptions = {
         autoplay: true,
         controls: true,
         responsive: true,
         fluid: true,
-        sources: [{
-            src: props.videoUrl,
-            type: 'video/mp4'
-        }]
-    };
-
-    const handlePlayerReady = (player) => {
-        playerRef.current = player;
-
-        player.on('waiting', () => {
-            videojs.log('player is waiting');
-        });
-
-        player.on('dispose', () => {
-            videojs.log('player will dispose');
-        });
+        sources: [
+            {
+                src: videoUrl,
+                type: 'video/mp4',
+            },
+        ],
     };
 
     return (
-        <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
+        <div className={styles["videoContainer"]}>
+            <VideoJS options={videoJsOptions} />
+        </div>
     );
-};
+}
 
 VideoPlayer.propTypes = {
     videoUrl: PropTypes.string.isRequired,
