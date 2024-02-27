@@ -8,7 +8,8 @@ class Service {
             person: 'https://api.themoviedb.org/3/person',
             trending: 'https://api.themoviedb.org/3/trending',
             searchMovie: 'https://api.themoviedb.org/3/search/movie',
-            searchSeries: 'https://api.themoviedb.org/3/search/tv'
+            searchSeries: 'https://api.themoviedb.org/3/search/tv',
+            searchAll: 'https://api.themoviedb.org/3/search/multi'
 
         };
         this.apiKey = '143b514b8f21e9b1982a0d0202a3f1e8';
@@ -92,6 +93,17 @@ class Service {
 
     fetchSearchSeries(keyword) {
         const baseUrl = this.baseUrls.searchSeries;
+
+        return axios.get(`${baseUrl}?api_key=${this.apiKey}&query=${keyword}`)
+            .then(response => response.data)
+            .catch(error => {
+                console.error(error);
+                throw error;
+            });
+    }
+
+    fetchSearchAll(keyword) {
+        const baseUrl = this.baseUrls.searchAll;
 
         return axios.get(`${baseUrl}?api_key=${this.apiKey}&query=${keyword}`)
             .then(response => response.data)
