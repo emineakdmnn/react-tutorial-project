@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Service from "../../../services/Service";
 import styles from "../styles.module.scss";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "../../../Components/Cards/Card";
-import {Loading} from "../../../Components/Loading";
+import { Loading } from "../../../Components/Loading";
 import Index from "../../../Components/Error";
-
 
 const TrendMovie = () => {
     const [loading, setLoading] = useState(true);
@@ -59,18 +58,18 @@ const TrendMovie = () => {
                 Trend Movies
                 <div className={styles['button-container']}>
                     <button
-                        className={styles['trend-button']}
+                        className={`${styles['trend-button']} ${selectedTimePeriod === 'day' ? styles['selected-button'] : ''}`}
                         onClick={() => handleButtonClick('day')}
                     >
-
                         Today
                     </button>
                     <button
-                        className={styles['trend-button']}
+                        className={`${styles['trend-button']} ${selectedTimePeriod === 'week' ? styles['selected-button'] : ''}`}
                         onClick={() => handleButtonClick('week')}
                     >
                         This Week
                     </button>
+
                 </div>
             </h2>
             <div className={styles['trend-container']}>
@@ -78,7 +77,7 @@ const TrendMovie = () => {
                 {errorResponse && <Index mainTitle={errorResponse.status}/>}
                 {!loading && trendMovies.map((movie, index) => (
                     <Link key={'movie-detail' + index} to={`/movie-details-id/${movie.id}`}>
-                        <Card
+                    <Card
                             key={'movie-details' + index}
                             id={movie.id}
                             posterPath={hoveredCard === movie.id ? movie.backdrop_path : movie.poster_path}

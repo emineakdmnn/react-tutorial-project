@@ -11,7 +11,7 @@
 
 .trend-header {
   display: flex;
-  align-items: center; /* Centering items vertically */
+  align-items: center;
   font-size: 24px;
   font-weight: bold;
   margin-top: 50px;
@@ -34,10 +34,16 @@
     color: #fff;
     background-color: transparent;
     border: none;
+    outline: none;
 
     &:hover {
       background-color: darkred;
       color: #fff;
     }
+  }
+
+  .selected-button {
+    background-color: darkred;
+    color: #fff;
   }
 }
