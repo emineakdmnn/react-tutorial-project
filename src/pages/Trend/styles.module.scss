@@ -10,11 +10,34 @@
 }
 
 .trend-header {
+  display: flex;
+  align-items: center; /* Centering items vertically */
   font-size: 24px;
   font-weight: bold;
   margin-top: 50px;
   margin-left: 10px;
   color: #fff;
   margin-bottom: 15px;
-}
 
+  .button-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid darkred;
+    border-radius: 20px;
+    margin-left: 20px;
+    overflow: hidden;
+  }
+
+  .trend-button {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      background-color: darkred;
+      color: #fff;
+    }
+  }
+}

@@ -72,8 +72,12 @@ class Service {
         return this.fetchData('popular', 'person')
     }
 
-    fetchTrendMovies() {
+    fetchTrendWeekMovies() {
         return this.fetchData('movie/week','trending')
+    }
+
+    fetchTrendDayMovies() {
+        return this.fetchData('movie/day','trending')
     }
 
     fetchTrendSeries() {

@@ -14,7 +14,7 @@ const TrendMovie= () => {
 
     const contentLoad = () => {
         setLoading(true);
-        trendMovieService.fetchTrendMovies().then(
+        trendMovieService.fetchTrendWeekMovies().then(
             (response) => {
                 setTrendMovies(response.results);
                 setErrorResponse(null);
@@ -42,9 +42,20 @@ const TrendMovie= () => {
 
     return (
         <div>
-            <h2 className={styles['trend-header']}>Trend Movies</h2>
+            <h2 className={styles['trend-header']}>
+                Trend Movies
+
+            <div className={styles['button-container']}>
+                <button className={styles['trend-button']} onClick={() => console.log('Today')}>
+                    Bugün
+                </button>
+                <button className={styles['trend-button']} onClick={() => console.log('Week')}>
+                    Bu Hafta
+                </button>
+            </div>
+            </h2>
             <div className={styles['trend-container']}>
-                {trendMovies.map((movie,index) => (
+                {trendMovies.map((movie, index) => (
                     <Link key={'movie-detail' + index} to={`/movie-details-id/${movie.id}`}>
                         <Card
                             key={'movie-details' + index}
