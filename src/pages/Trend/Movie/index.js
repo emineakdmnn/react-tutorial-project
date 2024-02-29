@@ -3,19 +3,27 @@ import Service from "../../../services/Service";
 import styles from "../styles.module.scss";
 import {Link} from "react-router-dom";
 import Card from "../../../Components/Cards/Card";
+import {Loading} from "../../../Components/Loading";
+import Index from "../../../Components/Error";
 
 
-const TrendMovie= () => {
+const TrendMovie = () => {
     const [loading, setLoading] = useState(true);
     const [errorResponse, setErrorResponse] = useState(null);
     const [trendMovies, setTrendMovies] = useState([]);
     const [hoveredCard, setHoveredCard] = useState(null);
+    const [selectedTimePeriod, setSelectedTimePeriod] = useState('');
     const trendMovieService = new Service();
 
     const contentLoad = () => {
         setLoading(true);
-        trendMovieService.fetchTrendWeekMovies().then(
+        const fetchService = selectedTimePeriod === 'week'
+            ? trendMovieService.fetchTrendWeekMovies()
+            : trendMovieService.fetchTrendDayMovies();
+
+        fetchService.then(
             (response) => {
+                console.log('API Response:', response);
                 setTrendMovies(response.results);
                 setErrorResponse(null);
                 setLoading(false);
@@ -30,7 +38,7 @@ const TrendMovie= () => {
 
     useEffect(() => {
         contentLoad();
-    }, []);
+    }, [selectedTimePeriod]);
 
     const handleMouseEnter = (movieId) => {
         setHoveredCard(movieId);
@@ -40,22 +48,35 @@ const TrendMovie= () => {
         setHoveredCard(null);
     };
 
+    const handleButtonClick = (timePeriod) => {
+        setSelectedTimePeriod(timePeriod);
+        console.log('timePeriod:', timePeriod);
+    };
+
     return (
         <div>
             <h2 className={styles['trend-header']}>
                 Trend Movies
+                <div className={styles['button-container']}>
+                    <button
+                        className={styles['trend-button']}
+                        onClick={() => handleButtonClick('day')}
+                    >
 
-            <div className={styles['button-container']}>
-                <button className={styles['trend-button']} onClick={() => console.log('Today')}>
-                    Today
-                </button>
-                <button className={styles['trend-button']} onClick={() => console.log('Week')}>
-                    This Week
-                </button>
-            </div>
+                        Today
+                    </button>
+                    <button
+                        className={styles['trend-button']}
+                        onClick={() => handleButtonClick('week')}
+                    >
+                        This Week
+                    </button>
+                </div>
             </h2>
             <div className={styles['trend-container']}>
-                {trendMovies.map((movie, index) => (
+                {loading && <Loading/>}
+                {errorResponse && <Index mainTitle={errorResponse.status}/>}
+                {!loading && trendMovies.map((movie, index) => (
                     <Link key={'movie-detail' + index} to={`/movie-details-id/${movie.id}`}>
                         <Card
                             key={'movie-details' + index}
