@@ -12,7 +12,7 @@ const TrendMovie = () => {
     const [errorResponse, setErrorResponse] = useState(null);
     const [trendMovies, setTrendMovies] = useState([]);
     const [hoveredCard, setHoveredCard] = useState(null);
-    const [selectedTimePeriod, setSelectedTimePeriod] = useState('');
+    const [selectedTimePeriod, setSelectedTimePeriod] = useState('day');
     const trendMovieService = new Service();
 
     const contentLoad = () => {
