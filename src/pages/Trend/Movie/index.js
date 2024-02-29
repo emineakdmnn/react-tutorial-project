@@ -47,10 +47,10 @@ const TrendMovie= () => {
 
             <div className={styles['button-container']}>
                 <button className={styles['trend-button']} onClick={() => console.log('Today')}>
-                    Bugün
+                    Today
                 </button>
                 <button className={styles['trend-button']} onClick={() => console.log('Week')}>
-                    Bu Hafta
+                    This Week
                 </button>
             </div>
             </h2>
