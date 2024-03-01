@@ -80,8 +80,12 @@ class Service {
         return this.fetchData('movie/day','trending')
     }
 
-    fetchTrendSeries() {
+    fetchTrendWeekSeries() {
         return this.fetchData('tv/week','trending')
+    }
+
+    fetchTrendDaySeries() {
+        return this.fetchData('tv/day','trending')
     }
 
     fetchSearchMovie(keyword) {
