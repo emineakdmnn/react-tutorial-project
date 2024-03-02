@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import Service from "../../../services/Service";
-import styles from "../../Trend/styles.module.scss";
-import {Loading} from "../../../Components/Loading";
-import Index from "../../../Components/Error";
+import Service from "../../services/Service";
+import styles from "../Trend/styles.module.scss";
+import {Loading} from "../../Components/Loading";
+import Index from "../../Components/Error";
 import {Link} from "react-router-dom";
-import Card from "../../../Components/Cards/Card";
+import Card from "../../Components/Cards/Card";
 
 
 const Discover = () => {

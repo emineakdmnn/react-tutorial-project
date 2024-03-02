@@ -6,7 +6,7 @@ import Footer from "../../Footer/Footer";
 import Header from "../../NavBar/Header";
 import TrendMovie from "../../../pages/Trend/Movie";
 import TrendSeries from "../../../pages/Trend/Series";
-import Discover from "../../../pages/Discover/Movies";
+import Discover from "../../../pages/Discover";
 
 function Container(props) {
     return (
