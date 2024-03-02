@@ -6,6 +6,7 @@ import Footer from "../../Footer/Footer";
 import Header from "../../NavBar/Header";
 import TrendMovie from "../../../pages/Trend/Movie";
 import TrendSeries from "../../../pages/Trend/Series";
+import Discover from "../../../pages/Discover/Movies";
 
 function Container(props) {
     return (
@@ -14,10 +15,14 @@ function Container(props) {
                 <Header headerTitle={'EMİNE'}></Header>
             </div>
             <div>
-                <TrendMovie />
+                <TrendMovie/>
             </div>
             <div>
                 <TrendSeries/>
+            </div>
+
+            <div>
+                <Discover/>
             </div>
             <div className={cn(styles['fixed-footer'])}>
                 <Footer></Footer>

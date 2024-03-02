@@ -9,7 +9,8 @@ class Service {
             trending: 'https://api.themoviedb.org/3/trending',
             searchMovie: 'https://api.themoviedb.org/3/search/movie',
             searchSeries: 'https://api.themoviedb.org/3/search/tv',
-            searchAll: 'https://api.themoviedb.org/3/search/multi'
+            searchAll: 'https://api.themoviedb.org/3/search/multi',
+            discover: 'https://api.themoviedb.org/3/discover'
 
         };
         this.apiKey = '143b514b8f21e9b1982a0d0202a3f1e8';
@@ -121,6 +122,18 @@ class Service {
             });
     }
 
+    fetchDiscover(type) {
+        const baseUrl = this.baseUrls.discover;
+
+        const discoverEndpoint = type === 'movie' ? 'movie' : 'tv';
+
+        return axios.get(`${baseUrl}/${discoverEndpoint}?api_key=${this.apiKey}`)
+            .then(response => response.data)
+            .catch(error => {
+                console.error(error);
+                throw error;
+            });
+    }
 
 }
 

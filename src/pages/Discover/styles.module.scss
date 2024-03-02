@@ -1,0 +1,49 @@
+.trend-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 50px;
+  flex-direction: row;
+}
+
+.trend-header {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-left: 10px;
+  color: #fff;
+  margin-bottom: 15px;
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid darkred;
+    border-radius: 20px;
+    margin-left: 20px;
+    overflow: hidden;
+  }
+
+  .trend-button {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background-color: darkred;
+      color: #fff;
+    }
+  }
+
+  .selected-button {
+    background-color: darkred;
+    color: #fff;
+  }
+}
