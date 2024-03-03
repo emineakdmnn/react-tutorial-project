@@ -32,7 +32,7 @@ function MovieDetailsCard(props) {
                 alt={title}
                 className={styles['image-container']}
             />
-            <div className={styles['title-label']}>{title}</div>
+            <div className={styles['title-block']}>{title}</div>
             <div className={styles['title-label']}>{overView}</div>
 
             <button
