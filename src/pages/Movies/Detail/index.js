@@ -43,6 +43,11 @@ const MovieDetails= () => {
                     posterUrl={movieDetail.poster_path}
                     title={movieDetail.title}
                     overView={movieDetail.overview}
+                    tagLine={movieDetail.tagline}
+                    genres={movieDetail.genres}
+                    runtime={movieDetail.runtime}
+                    date={movieDetail.release_date}
+                    average={movieDetail.vote_average}
                     videoUrl={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
                 />
             )}

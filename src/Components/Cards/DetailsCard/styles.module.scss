@@ -1,6 +1,5 @@
 .movie-details-card {
   display: flex;
-  flex-direction: column;
   padding: 20px;
   border: 5px solid darkred;
   border-radius: 5px;
@@ -20,8 +19,7 @@
   height: 500px;
   object-fit: cover;
   border-radius: 5px;
-  margin-bottom: 20px;
-  align-self: start;
+  margin-right: 30px; /* Add margin-right for spacing */
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
@@ -29,20 +27,39 @@
   font-size: 25px;
   display: flex;
   color: #ffffff;
+  margin-top:30px;
   margin-bottom: 5px;
   flex-direction: column;
   font-weight: bold;
   text-transform: uppercase;
-  align-items: center;
+}
+
+.tagline {
+  font-size: 18px;
+  color: #8a8a8a;
+  font-style: italic;
+  margin-top:10px;
+}
+
+.genres {
+  font-size: 15px;
+  color: #ffffff;
+  margin-top:10px;
+}
+
+.title-summary {
+  font-size: 18px;
+  color: #ffffff;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 .title-label {
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 10px;
+  margin-top: 10px;
   color: #ffffff;
-  text-align: center;
-  font-weight: bold;
-  text-transform: uppercase;
+
 }
 
 .play-button {
@@ -55,15 +72,29 @@
   border-radius: 5px;
   transition: background-color 0.3s ease;
   margin-top: auto;
-  align-self: center;
 }
 
 .play-button:hover {
   background-color: darkred;
   transition: transform 0.3s ease-in-out;
-  transform: scale(1.1); /* Hover durumunda butonun boyutunu büyütme */
+  transform: scale(1.1);
 }
 
 .video-overlay {
   margin-top: 20px;
+}
+
+.details-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.outer_ring {
+  display: inline-block;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border-color: white;
+  padding: 4px;
+  background-color: darkred;
 }

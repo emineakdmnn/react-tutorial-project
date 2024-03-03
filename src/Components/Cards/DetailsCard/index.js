@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Global from '../../../helpers/Global';
 import styles from './styles.module.scss';
@@ -11,6 +11,11 @@ function MovieDetailsCard(props) {
         title,
         posterUrl,
         overView,
+        tagLine,
+        genres,
+        runtime,
+        date,
+        average,
         videoUrl: defaultVideoUrl,
     } = props;
 
@@ -25,6 +30,13 @@ function MovieDetailsCard(props) {
         }
     };
 
+    const formatRuntime = (runtime) => {
+        const hours = Math.floor(runtime / 60);
+        const minutes = runtime % 60;
+        return `${hours}h ${minutes}m`;
+    };
+
+
     return (
         <div key={id} className={styles['movie-details-card']}>
             <img
@@ -32,8 +44,17 @@ function MovieDetailsCard(props) {
                 alt={title}
                 className={styles['image-container']}
             />
-            <div className={styles['title-block']}>{title}</div>
-            <div className={styles['title-label']}>{overView}</div>
+            <div className={`${styles['details-content']}`}>
+                <div className={styles['title-block']}>{title}</div>
+                <div className={styles['genres']}>
+                    <li>   {date + ' - '}{genres.map(genre => genre.name).join(', ') + ' - '}
+                        {formatRuntime(runtime)}
+                    </li>
+                </div>
+                <div className={styles['tagline']}>{tagLine}</div>
+                <div className={styles['title-summary']}>Summary</div>
+                <div className={styles['title-label']}>{overView}</div>
+            </div>
 
             <button
                 className={`${styles['play-button']} ${styles['custom-button']}`}
@@ -44,7 +65,7 @@ function MovieDetailsCard(props) {
 
             {showVideo && (
                 <div className={styles['video-overlay']}>
-                    <VideoPlayer videoUrl={defaultVideoUrl} />
+                    <VideoPlayer videoUrl={defaultVideoUrl}/>
                 </div>
             )}
         </div>
@@ -56,6 +77,11 @@ MovieDetailsCard.propTypes = {
     posterUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     overView: PropTypes.string.isRequired,
+    tagLine: PropTypes.string.isRequired,
+    genres: PropTypes.string.isRequired,
+    runtime: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    average: PropTypes.string.isRequired,
     videoUrl: PropTypes.string.isRequired,
 };
 
