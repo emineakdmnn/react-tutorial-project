@@ -36,6 +36,9 @@ function MovieDetailsCard(props) {
         return `${hours}h ${minutes}m`;
     };
 
+    const roundedAverage = Math.round(average * 10);
+    const formattedAverage = `${roundedAverage}%`;
+
 
     return (
         <div key={id} className={styles['movie-details-card']}>
@@ -50,6 +53,11 @@ function MovieDetailsCard(props) {
                     <li>   {date + ' - '}{genres.map(genre => genre.name).join(', ') + ' - '}
                         {formatRuntime(runtime)}
                     </li>
+                </div>
+                <div className={styles['side-by-side-container']}>
+                    <div className={styles['outer_ring']}>{formattedAverage}</div>
+                    <div className={styles['div-text']}> Member<br />Point</div>
+
                 </div>
                 <div className={styles['tagline']}>{tagLine}</div>
                 <div className={styles['title-summary']}>Summary</div>
