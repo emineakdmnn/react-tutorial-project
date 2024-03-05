@@ -2,22 +2,48 @@
   display: flex;
   align-items: end;
   width: 200px;
-  height: 20rem;
+  height: 300px;
   position: relative;
   overflow: hidden;
   border: 3px solid transparent;
   border-radius: 10px;
-  box-shadow: 0 1rem 2rem -.5rem #262626;
+  box-shadow: 0 1rem 2rem -0.5rem #262626;
   transition-property: box-shadow, transform, outline-color, filter;
   transition-duration: 200ms;
-  outline: .2rem solid transparent;
+  outline: 0.2rem solid transparent;
 
-  img {
+  .skeleton-container {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: filter 0.3s; /* Added transition for smooth effect */
+    overflow: hidden;
+    border-radius: 10px;
+
+    .skeleton-image {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #000000 25%, #262626 50%, #262626 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+      transition: width 0.3s;
+    }
+
+    .skeleton-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+
+      .skeleton-title {
+        width: 80%;
+        height: 10px;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #000000 25%, #262626 50%, #262626 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+    }
   }
 
   .movie-info {
@@ -26,10 +52,13 @@
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
     padding: 10px;
     opacity: 0;
     transition: opacity 0.3s;
+
+    h3 {
+      color: white;
+    }
   }
 
   &:hover,
@@ -48,7 +77,15 @@
       object-fit: cover;
       object-position: center;
       transform: scale(1.1);
-      filter: url(#sharpen); /* Apply the sharpening filter */
     }
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }

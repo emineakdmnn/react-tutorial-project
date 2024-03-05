@@ -101,11 +101,12 @@ MovieDetailsCard.propTypes = {
     title: PropTypes.string.isRequired,
     overView: PropTypes.string.isRequired,
     tagLine: PropTypes.string.isRequired,
-    genres: PropTypes.string.isRequired,
+    genres: PropTypes.array.isRequired,
     runtime: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     average: PropTypes.string.isRequired,
     videoUrl: PropTypes.string.isRequired,
 };
+
 
 export default MovieDetailsCard;
