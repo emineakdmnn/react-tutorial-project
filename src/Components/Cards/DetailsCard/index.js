@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Global from '../../../helpers/Global';
 import styles from './styles.module.scss';
 import VideoPlayer from "../../VideoJs/player";
+import {FaHeart, FaStar} from "react-icons/fa";
+import {FaBookBookmark} from "react-icons/fa6";
 
 function MovieDetailsCard(props) {
     const {
@@ -39,6 +41,10 @@ function MovieDetailsCard(props) {
     const roundedAverage = Math.round(average * 10);
     const formattedAverage = `${roundedAverage}%`;
 
+    const handleFavorite = () => {
+        console.log('Favori butonuna tıklandı');
+    };
+
 
     return (
         <div key={id} className={styles['movie-details-card']}>
@@ -56,7 +62,16 @@ function MovieDetailsCard(props) {
                 </div>
                 <div className={styles['side-by-side-container']}>
                     <div className={styles['outer_ring']}>{formattedAverage}</div>
-                    <div className={styles['div-text']}> Member<br />Point</div>
+                    <div className={styles['div-text']}> Member<br/>Point</div>
+                    <div className={styles['button']} onClick={handleFavorite}>
+                        <FaHeart/>
+                    </div>
+                    <div className={styles['button']} onClick={handleFavorite}>
+                        <FaStar/>
+                    </div>
+                    <div className={styles['button']} onClick={handleFavorite}>
+                        <FaBookBookmark/>
+                    </div>
 
                 </div>
                 <div className={styles['tagline']}>{tagLine}</div>
