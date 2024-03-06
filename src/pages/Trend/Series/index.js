@@ -72,7 +72,6 @@ const TrendSeries = () => {
                 </div>
             </h2>
             <div className={styles['trend-container']}>
-                {loading && <Loading/>}
                 {errorResponse && <Index mainTitle={errorResponse.status}/>}
                 {!loading && trendSeries.map((series, index) => (
                     <Link key={'series-detail' + index} to={`/series-details-id/${series.id}`}>

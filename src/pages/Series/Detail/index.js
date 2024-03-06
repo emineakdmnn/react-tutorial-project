@@ -43,6 +43,11 @@ const SeriesDetail= () => {
                     posterUrl={seriesDetail.poster_path}
                     title={seriesDetail.name}
                     overView={seriesDetail.overview}
+                    tagLine={seriesDetail.tagline}
+                    genres={seriesDetail.genres}
+                    runtime={seriesDetail.runtime}
+                    date={seriesDetail.release_date}
+                    average={seriesDetail.vote_average}
                     videoUrl={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
                 />
             )}

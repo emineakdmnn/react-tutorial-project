@@ -73,7 +73,6 @@ const TrendMovie = () => {
                 </div>
             </h2>
             <div className={styles['trend-container']}>
-                {loading && <Loading/>}
                 {errorResponse && <Index mainTitle={errorResponse.status}/>}
                 {!loading && trendMovies.map((movie, index) => (
                     <Link key={'movie-detail' + index} to={`/movie-details-id/${movie.id}`}>
