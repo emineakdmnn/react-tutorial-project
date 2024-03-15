@@ -47,7 +47,7 @@ const Popular = () => {
 
     useEffect(() => {
         contentLoad();
-    }, []);
+    }, []); //componentDidMount
 
     const handleInputChange = (e) => {
         const inputValue = e.target.value;

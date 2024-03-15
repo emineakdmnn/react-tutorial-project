@@ -3,7 +3,6 @@ import Service from "../../../services/Service";
 import styles from "../styles.module.scss";
 import { Link } from "react-router-dom";
 import Card from "../../../Components/Cards/Card";
-import { Loading } from "../../../Components/Loading";
 import Index from "../../../Components/Error";
 
 const TrendMovie = () => {
@@ -37,7 +36,7 @@ const TrendMovie = () => {
 
     useEffect(() => {
         contentLoad();
-    }, [selectedTimePeriod]);
+    }, [selectedTimePeriod]); //componentDidUpdate
 
     const handleMouseEnter = (movieId) => {
         setHoveredCard(movieId);
